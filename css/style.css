@@ -20,6 +20,15 @@ a {
 	color: #2E3192!important;
 }
 
+p {
+	color: #2E3192!important;
+}
+
+ h1, h2, h3, h4, h5, h6 {
+	font-weight: bold!important;
+	color: #2E3192!important;
+}
+
 .nav-link {
 	position: relative;
 }
@@ -63,5 +72,32 @@ a.nav-link:hover:before {
 	right: -37px;
 	bottom: -86px;
     position: absolute;
-    
+}
+
+.ali {
+	margin: 0 auto;
+}
+
+.biker-friendly > p {
+	margin-bottom: 0px;
+}
+
+.absolute-top {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+}
+
+.pos-absolute {
+	position: absolute;
+}
+
+
+@media (max-width: 768px) {
+	.drop-op {
+    	background-color: #fff;
+    	opacity: 0.7;
+    }
 }
