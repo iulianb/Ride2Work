@@ -146,6 +146,11 @@ a.nav-link:hover:before {
 	min-height: 80%;
 }
 
+footer {
+    background: url("../images/background-logo-footer.png") no-repeat center center;
+    background-size: cover;
+}
+
 footer>.container {
 	padding-top: 5%;
 }
