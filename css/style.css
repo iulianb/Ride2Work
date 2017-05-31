@@ -1,103 +1,245 @@
 .starter-template {
-	margin-top: 5rem;
+    margin-top: 5rem;
 }
 
 #main-logo {
-	margin-left: 25%;
+    margin-left: 25%;
 }
 
-ul {
-	margin-right: 10%;
+.main-color {
+    color: #2E3192!important;
 }
 
-a {
-	font-weight: bold;
-	color: #2E3192!important;
-}
+/*					*/
+/*	GLOBAL RULES	*/
+/*					*/
 
-.middle-stuff {
-	font-weight: bold;
-	color: #2E3192!important;
-}
-
-p {
-	color: #2E3192!important;
-}
-
- h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-weight: bold!important;
 	color: #2E3192!important;
 }
 
-.nav-link {
-	position: relative;
+ul {
+    margin-right: 10%;
+}
+
+a {
+    font-weight: bold;
+    color: #2E3192!important;
 }
 
 a.nav-link:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #2E3192;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #2E3192;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
 }
 
 a.nav-link:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
 }
 
+.middle-stuff {
+    font-weight: bold;
+    color: #2E3192!important;
+}
+
+
+/*p {
+	color: #2E3192!important;
+}*/
+
+
+.nav-link {
+    position: relative;
+}
+
+
 .pin {
-	position: absolute;
-	top: 25%;
+    position: absolute;
+    top: 25%;
     left: 85%;
 }
 
 .green-map-zone {
-	position: absolute;
+    position: absolute;
     top: 35%;
     left: 80%;
     transform: rotate(22deg);
-
 }
 
 .sponsor {
-	right: -37px;
-	bottom: -86px;
+    right: -37px;
+    bottom: -86px;
     position: absolute;
 }
 
 .ali {
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
-.biker-friendly > p {
-	margin-bottom: 0px;
+.biker-friendly>p {
+    margin-bottom: 0px;
 }
 
 .absolute-top {
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 1030;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 }
 
 .pos-absolute {
-	position: absolute;
+    position: absolute;
+}
+
+#arrow-events {
+	position: relative;
+	bottom: 80px;
+	left: 50%;
+}
+
+.map {
+    height: 85%;
+    position: absolute;
+    left: 10%;
+}
+
+.sponsors {
+    margin-top: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 20%;
+    width: 100%;
+    background-color: #2E3192;
+    color: #ffffff!important;
+}
+
+.green-button {
+    background: #74e77d;
+    border-radius: 1000px;
+    padding: 18px 24px;
+    text-decoration: none!important;
+    display: inline-block;
+    font: normal 700 24px/1 "Calibri", sans-serif;
+    text-align: center;
+    text-shadow: none;
+}
+
+/*					*/
+/*	FOOTER RULES	*/
+/*					*/
+
+.img-footer {
+	max-width: 100%;
+	min-height: 80%;
+}
+
+footer>.container {
+	padding-top: 5%;
+}
+
+.contact {
+	color: #fff;
+}
+
+.contact-social {
+	margin-top: 20%;
+	margin-bottom: 5%;
+}
+
+#google-contact {
+	margin-right: 20px;
+	margin-left:20px;
+}
+
+.md-input>input {
+    box-sizing: border-box;
+    display: block;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid rgba(46, 49, 146, 1);
+    outline: 0;
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 16px;
+    font-family: inherit;
+    line-height: inherit;
+    background-image: none;
+}
+
+.form-legend {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.form-legend>li {
+    padding: 10px;
+}
+
+.form-legend>li>a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff!important;
 }
 
 
+
+
+
+/*					*/
+/*	MEDIA QUERIES	*/
+/*					*/
+
+@media (min-width: 768px) {
+    .between {
+        position: relative;
+        border: 0.5px solid #74e77d;
+        top: 35px;
+        right: 115px;
+        min-width: 297px;
+    }
+    .points-row {
+        margin-left: -100px;
+    }
+}
+
 @media (max-width: 768px) {
-	.drop-op {
-    	background-color: #fff;
-    	opacity: 0.7;
+    .drop-op {
+        background-color: #fff;
+        opacity: 0.7;
+    }
+    #main-logo {
+        margin: 0;
+        width: 60px;
+    }
+    #arrow-events {
+        position: relative;
+        bottom: 40px;
+        left: 50%;
+    }
+    .between {
+        display: none;
     }
 }
