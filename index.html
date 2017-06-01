@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Andrei Pop">
     <!-- <link rel="icon" href="favicon.ico"> -->
 
-    <title>Awesome project</title>
+    <title>Ride2Work</title>
 
     <!-- CSS assets -->
     <link href="css/assets/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -21,8 +20,13 @@
 <body>
 
     <nav class="navbar navbar-toggleable-sm absolute-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">---</span>
+        <button class="navbar-toggler navbar-toggler-right mobile-nav" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+            <label class="nav-label mr-1x" for="nav-check">
+              <i class="fa fa-bars fa-2x"></i>
+              <i class="fa fa-times fa-2x no-display"></i>
+            </label>
+        </span>
       </button>
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
         <img src="images/ride2work-logo.png" id="main-logo" class="img-fluid">
@@ -30,59 +34,57 @@
         <div class=" main-color collapse navbar-collapse text-center drop-op" id="navbarsExampleDefault">
             <ul class="navbar-nav mx-auto float-md-right">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">EVENIMENTE <span class="sr-only">(current)</span></a>
+                    <a class="nav-link scrolling" href="#" data-rel="#events">EVENIMENTE <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">COMPANII</a>
+                    <a class="nav-link scrolling" href="#" data-rel="#organizators">COMPANII</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ARTICOLE</a>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" class="scrolling" href="#" data-rel="#">ARTICOLE</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link">DESPRE NOI</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>
 
     <img class="img-fluid" src="images/landing-photo.png" alt="landing">
-    <a href="#events">
-        <img id="arrow-events" class="img-fluid" src="images/down-arrow.png" alt="arrow">
+    <a class="scrolling" id="arrow-events" href="#"  data-rel="#events">
+        <img class="img-fluid" src="images/down-arrow.png" alt="arrow">
     </a>
 
 
-    <div class="container main-color">
+    <div class="container-fluid main-color">
 
         <div id="events" class="row">
             <!-- ă Ă â Â î Î ș Ș ț Ț -->
-            <div class="col-md-5 col-sm-12 middle-stuff">
+            <div class="col-lg-2"></div>
+            <div class=" col-lg-3 col-md-12 middle-stuff">
                 <h4>URMĂTORUL EVENIMENT</h4>
 
-                <br><br><br><br>
+                <div id="kick-off">
+                    <h1>RIDE2WORK KICK-OFF</h1>
+                    <p>Joi 20 Aprilie</p>
+                </div>
 
-                <h1>RIDE2WORK KICK-OFF</h1>
-                <p>Joi 20 Aprilie</p>
 
-                <br><br><br>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                <p id="event-details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
                     aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                <a href="#">EVENIMENTE ANTERIOARE</a>
+                <a id="previous-events" href="#">EVENIMENTE ANTERIOARE</a>
 
             </div>
 
-            <div class="col-md-7 col-sm-12">
-                <img class="map" src="images/map.png">
-                <img class="sponsor img-fluid" src="images/event-sponsor.png">
+            <div class="col-lg-7 col-md-12 cls-mobi">
+                <img id="map" class="img-fluid" src="images/map.png">
+                <img id="sponsor" class="img-fluid" src="images/event-sponsor.png">
             </div>
 
         </div>
-        <br>
-        <br>
-        <br>
-        <br><br><br><br>
-        <div class="container-fluid text-center">
+
+        <div class="container text-center">
 
             <div class="row">
                 <div class="col-md-12 font-bold">
@@ -130,23 +132,23 @@
             </div>
             <a class="green-button" href="#">Începe acum</a>
         </div>
-
     </div>
+
 
     <div>
         <img class="img-fluid pos-absolute" src="images/parc-1.png" alt="">
         <img class="img-fluid" src="images/parc-2.png" alt="">
     </div>
 
-    <div class="container sponsors">
+    <div class="container-fluid sponsors">
         <div class="row">
-            <div class="col-md-6">
+            <div id="organizators" class="col-md-6 col-sm-12">
                 <p>Organizatori</p>
-                <img src="images/logo-organizatori.png" alt="organizatori">
+                <img class="img-fluid" src="images/logo-organizatori.png" alt="organizatori">
             </div>
-            <div class="col-md-6">
+            <div id="partners" class="col-md-6 col-sm-12">
                 <p>Parteneri</p>
-                <img src="images/logo-parteneri.png" alt="parteneri">
+                <img class="img-fluid" src="images/logo-parteneri.png" alt="parteneri">
             </div>
         </div>
     </div>
@@ -174,29 +176,29 @@
                             <ul class="form-legend">
                                 <li><a href="#">EVENIMENTE</a></li>
                                 <li><a href="#">COMPANII</a></li>
-                                <li><a href="#">ARTICOLE</a></li>
-                                <li><a href="#">DESPRE NOI</a></li>
+                                <!-- <li><a href="#">ARTICOLE</a></li>
+                                <li><a href="#">DESPRE NOI</a></li> -->
                             </ul>
                         </legend>
                         <div class="md-input">
-                            <input type="text" placeholder="Salut...">
+                            <input id="subject1" type="text" placeholder="Salut...">
                         </div>
                         <div class="md-input">
-                            <input type="text" placeholder="">
+                            <input id="subject2" type="text" placeholder="">
                         </div>
                         <div class="md-input">
-                            <input type="text" placeholder="">
+                            <input id="subject3" type="text" placeholder="">
                         </div>
                         <div class="md-input">
-                            <input type="text" placeholder="">
+                            <input id="subject4" type="text" placeholder="">
                         </div>
                         <div class="md-input">
-                            <input type="text" placeholder="">
+                            <input id="subject5" type="text" placeholder="">
                         </div>
 
                         <div class="row">
                             <div class="col-sm-6 md-input">
-                                <input type="text" placeholder="Email Adresse">
+                                <input id="email" type="text" placeholder="Email Address">
                             </div>
                             <div class="col-sm-6 text-center">
                                 <a id="form-send" class="green-button" href="#">

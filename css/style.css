@@ -59,6 +59,27 @@ a.nav-link:hover:before {
 	color: #2E3192!important;
 }*/
 
+/*					*/
+/*	EVENTS RULES	*/
+/*					*/
+
+#events {
+    margin: 100px 0px 200px 0px;
+}
+
+#kick-off {
+    margin: 100px 0px;
+}
+
+#event-details {
+    opacity: 0.6;
+}
+
+#previous-events {
+    font-size: 23px;
+    opacity: 0.85;
+    text-decoration: underline;
+}
 
 .nav-link {
     position: relative;
@@ -78,10 +99,16 @@ a.nav-link:hover:before {
     transform: rotate(22deg);
 }
 
-.sponsor {
-    right: -37px;
-    bottom: -86px;
-    position: absolute;
+#map {
+    position: relative;
+    /*height: 85%;*/
+    /*left: 10%;*/
+}
+
+#sponsor {
+    position: relative;
+    left: 30%;
+    bottom: 15%;
 }
 
 .ali {
@@ -110,10 +137,15 @@ a.nav-link:hover:before {
 	left: 50%;
 }
 
-.map {
-    height: 85%;
-    position: absolute;
-    left: 10%;
+.green-button {
+    background: #74e77d;
+    border-radius: 1000px;
+    padding: 18px 24px;
+    text-decoration: none!important;
+    display: inline-block;
+    font: normal 700 24px/1 "Calibri", sans-serif;
+    text-align: center;
+    text-shadow: none;
 }
 
 .sponsors {
@@ -126,16 +158,16 @@ a.nav-link:hover:before {
     color: #ffffff!important;
 }
 
-.green-button {
-    background: #74e77d;
-    border-radius: 1000px;
-    padding: 18px 24px;
-    text-decoration: none!important;
-    display: inline-block;
-    font: normal 700 24px/1 "Calibri", sans-serif;
-    text-align: center;
-    text-shadow: none;
+#organizators {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
+#partners {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 
 /*					*/
 /*	FOOTER RULES	*/
@@ -209,6 +241,9 @@ footer>.container {
     color: #fff!important;
 }
 
+.no-display {
+    display: none;
+}
 
 
 
@@ -231,20 +266,72 @@ footer>.container {
 }
 
 @media (max-width: 768px) {
+    .mobile-nav {
+        background: #74e77de6;
+        cursor: pointer;
+    }
+
     .drop-op {
         background-color: #fff;
         opacity: 0.7;
     }
+
     #main-logo {
         margin: 0;
         width: 60px;
     }
+
     #arrow-events {
         position: relative;
         bottom: 40px;
         left: 50%;
     }
+
     .between {
         display: none;
     }
+
+    .form-legend {
+        flex-direction: column;
+    }
+
+    #events {
+        margin: 100px 0px;
+    }
+
+    #sponsor {
+        max-width: 25%;
+    }
+
+}
+
+@media (max-width: 1500px) {
+    .cls-mobi {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .middle-stuff {
+        text-align: center;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .between {
+        right: 95px;
+        min-width: 247px;
+    }
+}
+
+@media (max-width: 992px) {
+    .between {
+        right: 65px;
+        min-width: 167px;
+    }
+
+
+
 }
