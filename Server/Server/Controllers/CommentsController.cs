@@ -9,72 +9,47 @@ using System.Web.Http;
 
 namespace Server.Controllers
 {
-    public class UsersController : ApiController
+    public class CommentsController : ApiController
     {
-        // GET: api/Users
-        public IEnumerable<User> Get()
+        // GET: api/Comments
+        public IEnumerable<Comment> Get()
         {
             using (var db = new DataBaseContext())
             {
-                return db.Users.ToList();
+                return db.Comments.ToList();
             }
         }
 
-        // GET: api/Users/5
+        // GET: api/Comments/5
         public HttpResponseMessage Get(int id)
         {
             using (var db = new DataBaseContext())
             {
-                var user = db.Users.Single(x => x.Id == id);
-                if (user != null)
+                var comment = db.Comments.Single(x => x.Id == id);
+                if (comment != null)
                 {
-                    return Request.CreateResponse(HttpStatusCode.OK, user);
+                    return Request.CreateResponse(HttpStatusCode.OK, comment);
                 }
                 else
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with id = " + id + " not found");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Comment with id = " + id + " not found");
                 }
             }
         }
 
-        // POST: api/Users
-        public HttpResponseMessage Post([FromBody]User value)
+        // POST: api/Comments
+        public HttpResponseMessage Post([FromBody]Comment value)
         {
             try
             {
                 using (var db = new DataBaseContext())
                 {
-                    db.Users.Add(value);
+                    db.Comments.Add(value);
                     db.SaveChanges();
 
                     var message = Request.CreateResponse(HttpStatusCode.Created, value);
                     message.Headers.Location = new Uri(Request.RequestUri + value.Id.ToString());
                     return message;
-                }
-            }
-            catch(Exception ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
-            }
-        }
-
-        // PUT: api/Users/5
-        public HttpResponseMessage Put(int id, [FromBody]User value)
-        {
-            try
-            {
-                using (var db = new DataBaseContext())
-                {
-                    var user = db.Users.Single(x => x.Id == id);
-                    if (user == null)
-                    {
-                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with id = " + id + " not found");
-                    }
-                    user.UserName = value.UserName;
-                    user.Password = value.Password;
-                    user.Role = value.Role;
-                    db.SaveChanges();
-                    return Request.CreateResponse(HttpStatusCode.OK, user);
                 }
             }
             catch (Exception ex)
@@ -83,24 +58,50 @@ namespace Server.Controllers
             }
         }
 
-        // DELETE: api/Users/5
+        // PUT: api/Comments/5
+        public HttpResponseMessage Put(int id, [FromBody]Comment value)
+        {
+            try
+            {
+                using (var db = new DataBaseContext())
+                {
+                    var comment = db.Comments.Single(x => x.Id == id);
+                    if (comment == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Comment with id = " + id + " not found");
+                    }
+                    comment.Content = value.Content;
+                    comment.CommentDate = value.CommentDate;
+                    comment.Name = value.Name;
+                    comment.Article = value.Article;
+                    db.SaveChanges();
+                    return Request.CreateResponse(HttpStatusCode.OK, comment);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        // DELETE: api/Comments/5
         public HttpResponseMessage Delete(int id)
         {
             try
             {
                 using (var db = new DataBaseContext())
                 {
-                    var userToBeDeleted = db.Users.Single(x => x.Id == id);
-                    if (userToBeDeleted == null)
+                    var commentToBeDeleted = db.Comments.Single(x => x.Id == id);
+                    if (commentToBeDeleted == null)
                     {
-                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with id = " + id + " not found");
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Comment with id = " + id + " not found");
                     }
-                    db.Users.Remove(userToBeDeleted);
+                    db.Comments.Remove(commentToBeDeleted);
                     db.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }

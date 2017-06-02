@@ -43,3 +43,6 @@ C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\EntityFramework.
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\EntityFramework.SqlServer.dll
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\EntityFramework.xml
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\EntityFramework.SqlServer.xml
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.Initial.resources
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.UpdatedUsers.resources
