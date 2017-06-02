@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Server.Models
 {
-    public class Events
+    public class Event
     {
         [Key]
         public int Id { get; set; }
@@ -14,6 +14,6 @@ namespace Server.Models
         public string VideoLink { get; set; }
         public DateTime EventDate { get; set; }
 
-        public virtual ICollection<EventsSponsors> EventsSponsors { get; set; }
+        public virtual ICollection<EventSponsor> EventsSponsors { get; set; }
     }
 }

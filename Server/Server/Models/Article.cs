@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace Server.Models
 {
-    public class Articles
+    public class Article
     {
         [Key]
         public int Id { get; set; }
@@ -15,6 +13,6 @@ namespace Server.Models
         public string ImagePath { get; set; }
         public DateTime ArticleDate { get; set; }
 
-        public virtual ICollection<Comments> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
