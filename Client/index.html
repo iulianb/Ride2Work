@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <!-- <link rel="icon" href="favicon.ico"> -->
+    <meta name="theme-color" content="#74e77d" />
+    <link rel="icon" href="favicon.ico">
 
     <title>Ride2Work</title>
 
@@ -62,7 +63,7 @@
         <div id="events" class="row">
             <!-- ă Ă â Â î Î ș Ș ț Ț -->
             <div class="col-lg-2"></div>
-            <div class=" col-lg-3 col-md-12 middle-stuff">
+            <div class=" col-lg-4 col-md-12">
                 <h4>URMĂTORUL EVENIMENT</h4>
 
                 <div id="kick-off">
@@ -79,7 +80,7 @@
 
             </div>
 
-            <div class="col-lg-7 col-md-12 cls-mobi">
+            <div class="col-lg-6 col-md-12 cls-mobi" style="margin-top: 0.5rem;">
                 <img id="map" class="img-fluid" src="images/map.png">
                 <img id="sponsor" class="img-fluid" src="images/event-sponsor.png">
             </div>
@@ -132,7 +133,7 @@
                 </div>
 
             </div>
-            <a class="green-button" href="#">Începe acum</a>
+            <!-- <a class="green-button" href="#">Începe acum</a> -->
         </div>
     </div>
 
@@ -160,36 +161,37 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6 contact">
+                <div class="col-md-6 col-sm-12 contact">
                     <a id="footer-logo" href="/index.html">
                         <img src="images/ride2work-logo.png" alt="logo">
                     </a>
-                    <p>contact@ride2work.ro</p>
+                    <p style="margin-top: 5px;">contact@ride2work.ro</p>
                     <p>0745 678 901</p>
                     <div class="contact-social">
-                        <a href="https://www.facebook.com/Ride2WorkCluj/">
+                        <a href="https://www.facebook.com/Ride2WorkCluj/" target="_blank">
                             <img src="images/facebook.png" alt="facebook-page">
                         </a>
                         <!-- <a href="#">
                             <img id="google-contact" src="images/google-plus.png" alt="google-plus">
                         </a> -->
-                        <a href="https://www.instagram.com/ride2workcluj/">
+                        <a href="https://www.instagram.com/ride2workcluj/" target="_blank">
                             <img src="images/instagram.png" alt="instagram-page">
                         </a>
                     </div>
                     <p>Copyright @ Ride2Work.ro 2017</p>
+                    <p>Powered by &nbsp;<a href="http://www.contursoft.ro/" target="_blank"><img class="contursoft-logo img-fluid" src="images/contursoft.ro.png" alt="www.contursoft.ro"/></a></p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12 contact-form">
+                    <div class="text-center">
+                        <ul class="form-legend">
+                            <li><a class="scrolling nav-link" data-rel="#events" href="#">EVENIMENTE</a></li>
+                            <li><a class="scrolling nav-link" data-rel="#organizators" href="#">COMPANII</a></li>
+                            <!-- <li><a href="#">ARTICOLE</a></li>
+                            <li><a href="#">DESPRE NOI</a></li> -->
+                        </ul>
+                    </div>
 
                     <form id="details-form">
-                        <legend>
-                            <ul class="form-legend">
-                                <li><a class="scrolling" data-rel="#events" href="#">EVENIMENTE</a></li>
-                                <li><a class="scrolling" data-rel="#organizators" href="#">COMPANII</a></li>
-                                <!-- <li><a href="#">ARTICOLE</a></li>
-                                <li><a href="#">DESPRE NOI</a></li> -->
-                            </ul>
-                        </legend>
                         <p id="form-status" class="form-error"></p>
                         <textarea class="message" placeholder="Salut...">
 
@@ -215,14 +217,13 @@
                                 <input id="email" type="email" placeholder="Email Address">
                             </div>
                             <div class="col-sm-6 text-center">
-                                <a id="form-send" class="green-button" href="#form-info">
+                                <a id="form-send" class="green-button" href="#form-status">
                                 Trimite
                                 </a>
                             </div>
                         </div>
 
                     </form>
-
                 </div>
             </div>
         </div>

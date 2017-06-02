@@ -15,14 +15,14 @@ $(document).ready(function () {
 	});
 
 
-	console.log($( window ).width());
+	/*console.log($( window ).width());*/
 	if ($( window ).width() <= 600) {
 		var maxLength = 180;
 	}
 	else {
 		var maxLength = 335;
 	}
-	console.log(maxLength);
+	/*console.log(maxLength);*/
 
 	//clears text-input
 	$(".message").val('');
@@ -31,7 +31,7 @@ $(document).ready(function () {
 		var lines = text.split(/(\r\n|\n|\r)/gm);
 		for (var i = 0; i < lines.length; i++) {
 			if (lines[i].length > maxLength) {
-				console.log(maxLength);
+				/*console.log(maxLength);*/
 				lines[i] = lines[i].substring(0, maxLength);
 			}
 		}
@@ -77,23 +77,23 @@ $(document).ready(function () {
 
 		if (message === "" || email === "") {
 			formValidation("Va rugam sa introduce-ti un mesaj si o adresa de email valida.", false);
-		}
-		else if (!validateEmail(email)) {
+		} else if (!validateEmail(email)) {
 			formValidation("Adresa de email este invalida.", false);
-		}
-		else {
-			formValidation("Form subbmited successfuly.", true);
-
+		} else {	
 			$.ajax({
 				url: "../contact.php",
 				type: "POST",
 				data: {
 					message : message,
 					email : email
+				},
+				success: function(msg) {
+					formValidation("Form subbmited successfuly.", true);					
+					console.log(msg);
+				},
+				error: function(msg) {
+					console.log(msg);
 				}
-			})
-			.done(function (mess) {
-				console.log(mess);
 			});
 		}
 
