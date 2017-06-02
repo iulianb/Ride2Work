@@ -14,27 +14,76 @@ $(document).ready(function () {
 		$(".fa-bars").toggleClass("no-display");
 	});
 
+
+	console.log($( window ).width());
+	if ($( window ).width() <= 600) {
+		var maxLength = 180;
+	}
+	else {
+		var maxLength = 335;
+	}
+	console.log(maxLength);
+
+	//clears text-input
+	$(".message").val('');
+	$('.message').on('input focus keydown keyup', function() {
+		var text = $(this).val();
+		var lines = text.split(/(\r\n|\n|\r)/gm);
+		for (var i = 0; i < lines.length; i++) {
+			if (lines[i].length > maxLength) {
+				console.log(maxLength);
+				lines[i] = lines[i].substring(0, maxLength);
+			}
+		}
+		$(this).val(lines.join(''));
+	});
+
+	function validateEmail(email) {
+	  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	  return re.test(email);
+	}
+
+	function formValidation(text, success) {
+		var formStatus = "";
+		formStatus = $("#form-status");
+
+		if (success) {
+			formStatus
+						.empty()
+						.append(text)
+						.removeClass("form-error")
+						.addClass("form-success");
+		}
+
+		else {
+			formStatus
+						.empty()
+						.append(text)
+						.removeClass("form-success")
+						.addClass("form-error");
+		}
+	}
+
 	$("#form-send").click(function () {
 		var message = "";
 		var email = "";
 
-
+		message = $(".message")[0].value;
 		email = $("#email")[0].value;
-		for (var i = 1; i < $(".md-input").length; i++) {
-			message += $("#subject" + i)[0].value;
-		}
+		$(".message").val('');
 
-		//clear input fields
-		$(".md-input").each(function () {
-			this.firstElementChild.value = '';
-		});
+		// console.log(email);
+		// console.log(message);
 
-		console.log(email);
-		console.log(message);
 		if (message === "" || email === "") {
-			alert("You must input both a message and an email.");
+			formValidation("Va rugam sa introduce-ti un mesaj si o adresa de email valida.", false);
+		}
+		else if (!validateEmail(email)) {
+			formValidation("Adresa de email este invalida.", false);
 		}
 		else {
+			formValidation("Form subbmited successfuly.", true);
+
 			$.ajax({
 				url: "../contact.php",
 				type: "POST",
@@ -47,5 +96,6 @@ $(document).ready(function () {
 				console.log(mess);
 			});
 		}
+
 	});
 });

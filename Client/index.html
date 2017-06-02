@@ -29,7 +29,9 @@
         </span>
       </button>
         <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <img src="images/ride2work-logo.png" id="main-logo" class="img-fluid">
+        <a id="main-logo" href="/index.html">
+            <img class="img-fluid" src="images/ride2work-logo.png">
+        </a>
 
         <div class=" main-color collapse navbar-collapse text-center drop-op" id="navbarsExampleDefault">
             <ul class="navbar-nav mx-auto float-md-right">
@@ -50,7 +52,7 @@
     </nav>
 
     <img class="img-fluid" src="images/landing-photo.png" alt="landing">
-    <a class="scrolling" id="arrow-events" href="#"  data-rel="#events">
+    <a class="scrolling" id="arrow-events" href="#" data-rel="#events">
         <img class="img-fluid" src="images/down-arrow.png" alt="arrow">
     </a>
 
@@ -73,7 +75,7 @@
                 <p id="event-details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
                     aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                <a id="previous-events" href="#">EVENIMENTE ANTERIOARE</a>
+                <!-- <a id="previous-events" href="#">EVENIMENTE ANTERIOARE</a> -->
 
             </div>
 
@@ -159,13 +161,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 contact">
-                    <img src="images/ride2work-logo.png" alt="logo">
+                    <a id="footer-logo" href="/index.html">
+                        <img src="images/ride2work-logo.png" alt="logo">
+                    </a>
                     <p>contact@ride2work.ro</p>
                     <p>0745 678 901</p>
                     <div class="contact-social">
-                        <img src="images/facebook.png" alt="">
-                        <img id="google-contact" src="images/google-plus.png" alt="">
-                        <img src="images/twitter.png" alt="">
+                        <a href="https://www.facebook.com/Ride2WorkCluj/">
+                            <img src="images/facebook.png" alt="facebook-page">
+                        </a>
+                        <!-- <a href="#">
+                            <img id="google-contact" src="images/google-plus.png" alt="google-plus">
+                        </a> -->
+                        <a href="https://www.instagram.com/ride2workcluj/">
+                            <img src="images/instagram.png" alt="instagram-page">
+                        </a>
                     </div>
                     <p>Copyright @ Ride2Work.ro 2017</p>
                 </div>
@@ -174,36 +184,40 @@
                     <form id="details-form">
                         <legend>
                             <ul class="form-legend">
-                                <li><a href="#">EVENIMENTE</a></li>
-                                <li><a href="#">COMPANII</a></li>
+                                <li><a class="scrolling" data-rel="#events" href="#">EVENIMENTE</a></li>
+                                <li><a class="scrolling" data-rel="#organizators" href="#">COMPANII</a></li>
                                 <!-- <li><a href="#">ARTICOLE</a></li>
                                 <li><a href="#">DESPRE NOI</a></li> -->
                             </ul>
                         </legend>
+                        <p id="form-status" class="form-error"></p>
+                        <textarea class="message" placeholder="Salut...">
+
+                        </textarea>
                         <div class="md-input">
-                            <input id="subject1" type="text" placeholder="Salut...">
+                            <input id="subject1" type="text" placeholder="" disabled>
                         </div>
                         <div class="md-input">
-                            <input id="subject2" type="text" placeholder="">
+                            <input id="subject2" type="text" placeholder="" disabled>
                         </div>
                         <div class="md-input">
-                            <input id="subject3" type="text" placeholder="">
+                            <input id="subject3" type="text" placeholder="" disabled>
                         </div>
                         <div class="md-input">
-                            <input id="subject4" type="text" placeholder="">
+                            <input id="subject4" type="text" placeholder="" disabled>
                         </div>
                         <div class="md-input">
-                            <input id="subject5" type="text" placeholder="">
+                            <input id="subject5" type="text" placeholder="" disabled>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-6 md-input">
-                                <input id="email" type="text" placeholder="Email Address">
+                                <input id="email" type="email" placeholder="Email Address">
                             </div>
                             <div class="col-sm-6 text-center">
-                                <a id="form-send" class="green-button" href="#">
+                                <a id="form-send" class="green-button" href="#form-info">
                                 Trimite
-                            </a>
+                                </a>
                             </div>
                         </div>
 
@@ -215,7 +229,6 @@
 
     </footer>
 
-
     <!-- JS assets -->
     <script type="text/javascript" src="js/assets/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/assets/tether.min.js"></script>
@@ -223,6 +236,7 @@
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/script.js"></script>
+
 </body>
 
 </html>
