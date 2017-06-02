@@ -25,7 +25,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
-                var comment = db.Comments.Single(x => x.Id == id);
+                var comment = db.Comments.SingleOrDefault(x => x.Id == id);
                 if (comment != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, comment);
@@ -65,7 +65,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var comment = db.Comments.Single(x => x.Id == id);
+                    var comment = db.Comments.SingleOrDefault(x => x.Id == id);
                     if (comment == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Comment with id = " + id + " not found");
@@ -91,7 +91,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var commentToBeDeleted = db.Comments.Single(x => x.Id == id);
+                    var commentToBeDeleted = db.Comments.SingleOrDefault(x => x.Id == id);
                     if (commentToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Comment with id = " + id + " not found");

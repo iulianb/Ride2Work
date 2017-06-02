@@ -25,7 +25,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
-                var eventsponsor = db.EventsSponsors.Single(x => x.Id == id);
+                var eventsponsor = db.EventsSponsors.SingleOrDefault(x => x.Id == id);
                 if (eventsponsor != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, eventsponsor);
@@ -44,6 +44,12 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    var anotherLink = db.EventsSponsors.SingleOrDefault(x => x.Event.Id == value.Event.Id || 
+                                                                             x.Sponsor.Id == value.Sponsor.Id);
+                    if (anotherLink != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The link between event and sponsor already exists");
+                    }
                     db.EventsSponsors.Add(value);
                     db.SaveChanges();
 
@@ -65,10 +71,16 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var eventSponsor = db.EventsSponsors.Single(x => x.Id == id);
+                    var eventSponsor = db.EventsSponsors.SingleOrDefault(x => x.Id == id);
                     if (eventSponsor == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "EventSponsor with id = " + id + " not found");
+                    }
+                    var anotherLink = db.EventsSponsors.SingleOrDefault(x => x.Event.Id == value.Event.Id ||
+                                                                             x.Sponsor.Id == value.Sponsor.Id);
+                    if (anotherLink != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The link between event and sponsor already exists");
                     }
                     eventSponsor.LinkToFacebook = value.LinkToFacebook;
                     eventSponsor.Sponsor = value.Sponsor;
@@ -90,7 +102,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var eventSponsorToBeDeleted = db.EventsSponsors.Single(x => x.Id == id);
+                    var eventSponsorToBeDeleted = db.EventsSponsors.SingleOrDefault(x => x.Id == id);
                     if (eventSponsorToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "EventSponsor with id = " + id + " not found");

@@ -2,7 +2,6 @@
 using Server.Models;
 using Server.Models.Context;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -25,7 +24,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
-                var eventToBeReturned = db.Events.Single(x => x.Id == id);
+                var eventToBeReturned = db.Events.SingleOrDefault(x => x.Id == id);
                 if (eventToBeReturned != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, eventToBeReturned);
@@ -44,6 +43,11 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    var anotherEvent = db.Events.SingleOrDefault(x => x.Title == value.Title);
+                    if (anotherEvent != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The title already exists");
+                    }
                     db.Events.Add(value);
                     db.SaveChanges();
 
@@ -65,10 +69,15 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var oldValue = db.Events.Single(x => x.Id == id);
+                    var oldValue = db.Events.SingleOrDefault(x => x.Id == id);
                     if (oldValue == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event with id = " + id + " not found");
+                    }
+                    var anotherEvent = db.Events.SingleOrDefault(x => x.Title == value.Title);
+                    if (anotherEvent != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The title already exists");
                     }
                     oldValue.Description = value.Description;
                     oldValue.ImagePath = value.ImagePath;
@@ -92,7 +101,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var eventToBeDeleted = db.Events.Single(x => x.Id == id);
+                    var eventToBeDeleted = db.Events.SingleOrDefault(x => x.Id == id);
                     if (eventToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event with id = " + id + " not found");

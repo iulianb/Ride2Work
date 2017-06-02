@@ -25,7 +25,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
-                var article = db.Articles.Single(x => x.Id == id);
+                var article = db.Articles.SingleOrDefault(x => x.Id == id);
                 if (article != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, article);
@@ -44,6 +44,11 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    var anotherArticle = db.Articles.SingleOrDefault(x => x.Title == value.Title);
+                    if (anotherArticle != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The article title already exists");
+                    }
                     db.Articles.Add(value);
                     db.SaveChanges();
 
@@ -65,10 +70,15 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var article = db.Articles.Single(x => x.Id == id);
+                    var article = db.Articles.SingleOrDefault(x => x.Id == id);
                     if (article == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Article with id = " + id + " not found");
+                    }
+                    var anotherArticle = db.Articles.SingleOrDefault(x => x.Title == value.Title);
+                    if (anotherArticle != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The article title already exists");
                     }
                     article.ArticleDate = value.ArticleDate;
                     article.Content = value.Content;
@@ -91,7 +101,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var articleToBeDeleted = db.Articles.Single(x => x.Id == id);
+                    var articleToBeDeleted = db.Articles.SingleOrDefault(x => x.Id == id);
                     if (articleToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Article with id = " + id + " not found");

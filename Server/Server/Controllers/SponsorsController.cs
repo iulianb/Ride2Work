@@ -25,7 +25,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
-                var sponsor = db.Sponsors.Single(x => x.Id == id);
+                var sponsor = db.Sponsors.SingleOrDefault(x => x.Id == id);
                 if (sponsor != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, sponsor);
@@ -44,6 +44,11 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    var anotherSponsor= db.Sponsors.SingleOrDefault(x => x.Name == value.Name);
+                    if (anotherSponsor != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The sponsor already exists");
+                    }
                     db.Sponsors.Add(value);
                     db.SaveChanges();
 
@@ -65,10 +70,15 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var sponsor = db.Sponsors.Single(x => x.Id == id);
+                    var sponsor = db.Sponsors.SingleOrDefault(x => x.Id == id);
                     if (sponsor == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sponsor with id = " + id + " not found");
+                    }
+                    var anotherSponsor = db.Sponsors.SingleOrDefault(x => x.Name == value.Name);
+                    if (anotherSponsor != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The sponsor already exists");
                     }
                     sponsor.Description = value.Description;
                     sponsor.LogoLink = value.LogoLink;
@@ -92,7 +102,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var sponsorToBeDeleted = db.Sponsors.Single(x => x.Id == id);
+                    var sponsorToBeDeleted = db.Sponsors.SingleOrDefault(x => x.Id == id);
                     if (sponsorToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sponsor with id = " + id + " not found");

@@ -126,6 +126,7 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\EventsSponsorsController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SponsorsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -138,6 +139,10 @@
     <Compile Include="Migrations\201706011537047_UpdatedUsers.cs" />
     <Compile Include="Migrations\201706011537047_UpdatedUsers.Designer.cs">
       <DependentUpon>201706011537047_UpdatedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706020716475_AddedEmailForUser.cs" />
+    <Compile Include="Migrations\201706020716475_AddedEmailForUser.Designer.cs">
+      <DependentUpon>201706020716475_AddedEmailForUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
@@ -170,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706011537047_UpdatedUsers.resx">
       <DependentUpon>201706011537047_UpdatedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706020716475_AddedEmailForUser.resx">
+      <DependentUpon>201706020716475_AddedEmailForUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

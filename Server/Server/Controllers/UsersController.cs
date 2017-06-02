@@ -25,7 +25,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
-                var user = db.Users.Single(x => x.Id == id);
+                var user = db.Users.SingleOrDefault(x => x.Id == id);
                 if (user != null)
                 {
                     return Request.CreateResponse(HttpStatusCode.OK, user);
@@ -44,6 +44,11 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    var user = db.Users.SingleOrDefault(x => x.Email == value.Email || x.UserName == value.UserName);
+                    if (user != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The email or username already exists");
+                    }
                     db.Users.Add(value);
                     db.SaveChanges();
 
@@ -58,6 +63,8 @@ namespace Server.Controllers
             }
         }
 
+        // POST: api/Users/
+
         // PUT: api/Users/5
         public HttpResponseMessage Put(int id, [FromBody]User value)
         {
@@ -65,13 +72,21 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var user = db.Users.Single(x => x.Id == id);
+                    var user = db.Users.SingleOrDefault(x => x.Id == id);
                     if (user == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with id = " + id + " not found");
                     }
+
+                    var anotherUser = db.Users.SingleOrDefault(x => x.Email == value.Email || x.UserName == value.UserName);
+                    if (anotherUser != null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The email or username already exists");
+                    }
+
                     user.UserName = value.UserName;
                     user.Password = value.Password;
+                    user.Email = value.Email;
                     user.Role = value.Role;
                     db.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK, user);
@@ -90,7 +105,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var userToBeDeleted = db.Users.Single(x => x.Id == id);
+                    var userToBeDeleted = db.Users.SingleOrDefault(x => x.Id == id);
                     if (userToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with id = " + id + " not found");

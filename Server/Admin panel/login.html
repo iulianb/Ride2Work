@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div align="center">
+
+    <div class="form-horizontal" style="border-radius:20px; width: 40%; padding:20px; border: groove; margin-top:35px; background-color:lightgray">
+
+        <h2>Login</h2><br>
+        <div class="form-group">
+            <p>Username: </p>
+            <div class="col-md-10">
+                <input id="username" type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Password: </p>
+            <div class="col-md-10">
+                <input id="password" type="password">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-2">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+            <div class="col-md-2">
+                <input type="button" value="Cancel" class="btn btn-default" onclick="window.location.href = 'https://www.facebook.com'" />
+            </div>
+        </div>
+
+        <div class="col-md-offset-2">
+            <p>
+            
+            </p>
+        </div>
+    </div>
+</div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $("#form-send").click(function () {
+        var username = "";
+        var password = "";
+ 
+        username = $("#username")[0].value;
+        password = $("#password")[0].value;
+
+        if (username === "" || password === "") {
+            alert("You must input all fields.");
+        }
+        else {
+            $.ajax({
+                url: "localhost:49421/api/Login",
+                type: "POST",
+                data: {
+                    username : username,
+                    password : password
+                }
+            })
+            .done(function (mess) {
+                console.log(mess);
+            });
+        }
+    });
+    </script>
+</body>
+
+</html>
