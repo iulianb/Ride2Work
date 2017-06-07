@@ -1,13 +1,13 @@
 $(document).ready(function () {
 	"use strict";
-	$(".scrolling").on("click", function () {
-		var target = $(this).data('rel');
-		   var $target = $(target);
-		   console.log($target);
-		   $('html, body').stop().animate({
-			   'scrollTop': $target.offset().top
-		   }, 900, 'swing');
-	});
+	// $(".scrolling").on("click", function () {
+	// 	var target = $(this).data('rel');
+	// 	   var $target = $(target);
+	// 	   console.log($target);
+	// 	   $('html, body').stop().animate({
+	// 		   'scrollTop': $target.offset().top
+	// 	   }, 900, 'swing');
+	// });
 
 	$(".mobile-nav").click(function () {
 		$(".fa-times").toggleClass("no-display");
@@ -15,14 +15,12 @@ $(document).ready(function () {
 	});
 
 
-	/*console.log($( window ).width());*/
 	if ($( window ).width() <= 600) {
 		var maxLength = 180;
 	}
 	else {
 		var maxLength = 335;
 	}
-	/*console.log(maxLength);*/
 
 	//clears text-input
 	$(".message").val('');
@@ -79,7 +77,7 @@ $(document).ready(function () {
 			formValidation("Va rugam sa introduce-ti un mesaj si o adresa de email valida.", false);
 		} else if (!validateEmail(email)) {
 			formValidation("Adresa de email este invalida.", false);
-		} else {	
+		} else {
 			$.ajax({
 				url: "../contact.php",
 				type: "POST",
@@ -88,7 +86,7 @@ $(document).ready(function () {
 					email : email
 				},
 				success: function(msg) {
-					formValidation("Form subbmited successfuly.", true);					
+					formValidation("Form subbmited successfuly.", true);
 					console.log(msg);
 				},
 				error: function(msg) {
@@ -96,6 +94,6 @@ $(document).ready(function () {
 				}
 			});
 		}
-
 	});
+
 });
