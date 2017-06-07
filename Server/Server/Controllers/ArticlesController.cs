@@ -16,6 +16,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 return db.Articles.ToList();
             }
         }
@@ -25,6 +26,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 var article = db.Articles.SingleOrDefault(x => x.Id == id);
                 if (article != null)
                 {
@@ -70,12 +72,13 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var article = db.Articles.SingleOrDefault(x => x.Id == id);
                     if (article == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Article with id = " + id + " not found");
                     }
-                    var anotherArticle = db.Articles.SingleOrDefault(x => x.Title == value.Title);
+                    var anotherArticle = db.Articles.SingleOrDefault(x => x.Title == value.Title && x.Id != id);
                     if (anotherArticle != null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The article title already exists");
@@ -101,10 +104,16 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var articleToBeDeleted = db.Articles.SingleOrDefault(x => x.Id == id);
                     if (articleToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Article with id = " + id + " not found");
+                    }
+                    var commentsToBeDeleted = db.Comments.Where(x => x.Article.Id == articleToBeDeleted.Id).ToList();
+                    foreach (var item in commentsToBeDeleted)
+                    {
+                        db.Comments.Remove(item);
                     }
                     db.Articles.Remove(articleToBeDeleted);
                     db.SaveChanges();

@@ -6,15 +6,17 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+
 namespace Server.Controllers
 {
     public class EventsController : ApiController
     {
         // GET: api/Events
-        public IEnumerable<Event> Get()
+        public IList<Event> Get()
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 return db.Events.ToList();
             }
         }
@@ -24,6 +26,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 var eventToBeReturned = db.Events.SingleOrDefault(x => x.Id == id);
                 if (eventToBeReturned != null)
                 {
@@ -69,12 +72,13 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var oldValue = db.Events.SingleOrDefault(x => x.Id == id);
                     if (oldValue == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event with id = " + id + " not found");
                     }
-                    var anotherEvent = db.Events.SingleOrDefault(x => x.Title == value.Title);
+                    var anotherEvent = db.Events.SingleOrDefault(x => x.Title == value.Title && x.Id != id);
                     if (anotherEvent != null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The title already exists");
@@ -101,10 +105,16 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var eventToBeDeleted = db.Events.SingleOrDefault(x => x.Id == id);
                     if (eventToBeDeleted == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Event with id = " + id + " not found");
+                    }
+                    var eventsSponsors = db.EventsSponsors.Where(x => x.Event.Id == eventToBeDeleted.Id);
+                    foreach (var item in eventsSponsors)
+                    {
+                        db.EventsSponsors.Remove(item);
                     }
                     db.Events.Remove(eventToBeDeleted);
                     db.SaveChanges();

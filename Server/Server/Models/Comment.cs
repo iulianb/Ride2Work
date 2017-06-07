@@ -10,6 +10,7 @@ namespace Server.Models
         public string Name { get; set; }
         public string Content { get; set; }
         public DateTime CommentDate { get; set; }
+        public int ArticleID { get; set; }
 
         public virtual Article Article { get; set; }
     }

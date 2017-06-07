@@ -57,13 +57,11 @@ namespace Server.Controllers
                     return message;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
         }
-
-        // POST: api/Users/
 
         // PUT: api/Users/5
         public HttpResponseMessage Put(int id, [FromBody]User value)
@@ -77,13 +75,11 @@ namespace Server.Controllers
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with id = " + id + " not found");
                     }
-
-                    var anotherUser = db.Users.SingleOrDefault(x => x.Email == value.Email || x.UserName == value.UserName);
+                    var anotherUser = db.Users.SingleOrDefault(x => (x.Email == value.Email || x.UserName == value.UserName) && x.Id != id);
                     if (anotherUser != null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The email or username already exists");
                     }
-
                     user.UserName = value.UserName;
                     user.Password = value.Password;
                     user.Email = value.Email;
@@ -115,7 +111,7 @@ namespace Server.Controllers
                     return Request.CreateResponse(HttpStatusCode.OK);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }

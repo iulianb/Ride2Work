@@ -144,6 +144,14 @@
     <Compile Include="Migrations\201706020716475_AddedEmailForUser.Designer.cs">
       <DependentUpon>201706020716475_AddedEmailForUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706051443106_AddedArticleIDToComment.cs" />
+    <Compile Include="Migrations\201706051443106_AddedArticleIDToComment.Designer.cs">
+      <DependentUpon>201706051443106_AddedArticleIDToComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706051640159_CorrectedModels.cs" />
+    <Compile Include="Migrations\201706051640159_CorrectedModels.Designer.cs">
+      <DependentUpon>201706051640159_CorrectedModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -178,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706020716475_AddedEmailForUser.resx">
       <DependentUpon>201706020716475_AddedEmailForUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051443106_AddedArticleIDToComment.resx">
+      <DependentUpon>201706051443106_AddedArticleIDToComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706051640159_CorrectedModels.resx">
+      <DependentUpon>201706051640159_CorrectedModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

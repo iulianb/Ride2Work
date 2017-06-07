@@ -16,6 +16,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 return db.Comments.ToList();
             }
         }
@@ -25,6 +26,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 var comment = db.Comments.SingleOrDefault(x => x.Id == id);
                 if (comment != null)
                 {
@@ -65,6 +67,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var comment = db.Comments.SingleOrDefault(x => x.Id == id);
                     if (comment == null)
                     {
@@ -73,7 +76,7 @@ namespace Server.Controllers
                     comment.Content = value.Content;
                     comment.CommentDate = value.CommentDate;
                     comment.Name = value.Name;
-                    comment.Article = value.Article;
+                    comment.ArticleID = value.ArticleID;
                     db.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK, comment);
                 }
@@ -91,6 +94,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var commentToBeDeleted = db.Comments.SingleOrDefault(x => x.Id == id);
                     if (commentToBeDeleted == null)
                     {
