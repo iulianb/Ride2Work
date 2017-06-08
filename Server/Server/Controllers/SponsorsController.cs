@@ -16,6 +16,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 return db.Sponsors.ToList();
             }
         }
@@ -25,6 +26,7 @@ namespace Server.Controllers
         {
             using (var db = new DataBaseContext())
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 var sponsor = db.Sponsors.SingleOrDefault(x => x.Id == id);
                 if (sponsor != null)
                 {
@@ -44,7 +46,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var anotherSponsor= db.Sponsors.SingleOrDefault(x => x.Name == value.Name);
+                    var anotherSponsor = db.Sponsors.SingleOrDefault(x => x.Name == value.Name);
                     if (anotherSponsor != null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The sponsor already exists");
@@ -70,12 +72,13 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var sponsor = db.Sponsors.SingleOrDefault(x => x.Id == id);
                     if (sponsor == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sponsor with id = " + id + " not found");
                     }
-                    var anotherSponsor = db.Sponsors.SingleOrDefault(x => x.Name == value.Name);
+                    var anotherSponsor = db.Sponsors.SingleOrDefault(x => x.Name == value.Name && x.Id != id);
                     if (anotherSponsor != null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The sponsor already exists");
@@ -102,6 +105,7 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
+                    db.Configuration.LazyLoadingEnabled = false;
                     var sponsorToBeDeleted = db.Sponsors.SingleOrDefault(x => x.Id == id);
                     if (sponsorToBeDeleted == null)
                     {

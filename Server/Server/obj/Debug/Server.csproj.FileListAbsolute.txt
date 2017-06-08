@@ -47,3 +47,5 @@ C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Mig
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.csproj.GenerateResource.Cache
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.UpdatedUsers.resources
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.AddedEmailForUser.resources
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.AddedArticleIDToComment.resources
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.CorrectedModels.resources
