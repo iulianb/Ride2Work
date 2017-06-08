@@ -1,13 +1,13 @@
 $(document).ready(function () {
 	"use strict";
-	// $(".scrolling").on("click", function () {
-	// 	var target = $(this).data('rel');
-	// 	   var $target = $(target);
-	// 	   console.log($target);
-	// 	   $('html, body').stop().animate({
-	// 		   'scrollTop': $target.offset().top
-	// 	   }, 900, 'swing');
-	// });
+	$(".scrolling").on("click", function () {
+		var target = $(this).data('rel');
+		   var $target = $(target);
+		   console.log($target);
+		   $('html, body').stop().animate({
+			   'scrollTop': $target.offset().top
+		   }, 900, 'swing');
+	});
 
 	$(".mobile-nav").click(function () {
 		$(".fa-times").toggleClass("no-display");
