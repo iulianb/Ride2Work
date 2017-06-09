@@ -29,42 +29,42 @@ function callAPI (variables) {
 }
 
 //GET ALL NEEDED INFO
-function getUsers() {
+function getAllUsers() {
 	return callAPI({
 		where: "users",
 		type: "GET",
 	});
 }
 
-function getArticles() {
+function getAllArticles() {
 	return callAPI({
 		where : "articles",
 		type: "GET"
 	});
 }
 
-function getComments () {
+function getAllComments () {
 	return callAPI({
 		where: "comments",
 		type: "GET"
 	});
 }
 
-function getEvents() {
+function getAllEvents() {
 	return callAPI({
 		where: "events",
 		type: "GET"
 	});
 }
 
-function getEventSponsors () {
+function getAllEventSponsors () {
 	return callAPI({
 		where: "eventsSponsors",
 		type: "GET"
 	});
 }
 
-function getSponsors() {
+function getAllSponsors() {
 	return callAPI({
 		where: "Sponsors",
 		type: "GET",
