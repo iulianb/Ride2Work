@@ -1,21 +1,26 @@
+
 //API stuff
+"use strict";
 
 var baseurl = "localhost";//this will be added from backend
 
 
 /*Call API params:
-//where==>where on the api the call must be made
-//type==>type of the call => { GET, POST, PUT, DELETE }
-//data==>data that must be used in the call(usually an object with stuff)
-//error==>response codes for error cases
+	where==>where on the api the call must be made
+
+	type==>type of the call => { GET, POST, PUT, DELETE }
+
+	data==>data that must be used in the call(usually an object with stuff)
+
+	error==>response codes for error cases
 */
-//return callAPI will return an object that was recieved from the server
+//Call API will return an object that was received from the server
 //or it will output an error message if anything goes wrong
 function callAPI (variables) {
 	$.ajax({
 		url: baseurl + "/api/" + variables.where,
 		type: variables.type,
-		data: variables.data ,
+		data: variables.data,
 		success: function(msg) {
 			console.log(msg);
 			return msg;
@@ -175,6 +180,7 @@ function addSponsor(sponsorData) {
 
 //UPDATE SPECIFIC INFO
 //responseCodes: OK: 200;not found: 404; not acceptable: 406; bad request: 400
+
 var userErrorCodes = {
 		"400" : "Bad Request: Something went wrong!",
 		"404" : "Not Found: user was not found in database!",

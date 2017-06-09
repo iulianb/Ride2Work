@@ -11,10 +11,6 @@ $(document).ready(function () {
 		//do stuff
 	}
 
-	function titleChange (html) {
-		document.title = html.match(/<title>(.*?)<\/title>/)[1].trim().decodeHTML();
-		init();
-	}
 	function loadPage(href) {
 		console.log(href);
 		contentLoad.load(href);
@@ -27,6 +23,8 @@ $(document).ready(function () {
 
 	if (performance.navigation.type == 1) {
 		// loadPage(location.href);
+		console.log(location.href);
+		console.log(document.domain);
 	}
 
 	$(window).on("popstate", function (event) {
@@ -40,13 +38,13 @@ $(document).ready(function () {
 	});
 
 	$(document).on("click", "a", function() {
-		var href = $(this).data("href");
+		var href = $(this).data("href") + ".html";
 
-		// if (href.indexOf(document.doamin) > -1 || href.indexOf(":") === -1) {
+		if (href.indexOf(document.doamin) > -1 || href.indexOf(":") === -1) {
 			history.pushState({}, '', href);
 			loadPage(href);
 			return false;
-		// }
+		}
 
 	});
 
