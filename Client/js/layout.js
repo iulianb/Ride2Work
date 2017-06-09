@@ -1,6 +1,9 @@
+//http://krasimirtsonev.com/blog/article/A-modern-JavaScript-router-in-100-lines-history-api-pushState-hash-url
+//http://joakim.beng.se/blog/posts/a-javascript-router-in-20-lines.html
 $(document).ready(function () {
 	//extend string prototype
 	var contentLoad = $(".content-load");
+	// contentLoad.load("home.html");
 
 	String.prototype.decodeHTML = function() { return $("<div>", {html: "" + this}).html(); };
 
