@@ -2,7 +2,7 @@
 //API stuff
 "use strict";
 
-var baseurl = "localhost";//this will be added from backend
+var baseurl = "localhost";//location.host maybe;this will be added from backend
 
 
 /*Call API params:
@@ -80,7 +80,7 @@ function getAllSponsors() {
 //GET ONLY SPECIFIC INFO
 function getUser(id) {
 	return callAPI({
-		where: "user/" + id,
+		where: "users/" + id,
 		type: "GET",
 	});
 }
@@ -205,7 +205,7 @@ function updateArticle(id, articleData) {
 		where: "articles/" + id,
 		type: "PUT",
 		data: articleData,
-		error : userErrorCodes
+		error : articleErrorCodes
 	});
 }
 
@@ -269,7 +269,7 @@ function updateSponsor(id, sponsorData) {
 
 function deleteUser(id) {
 	return callAPI({
-		where: "user/" + id,
+		where: "users/" + id,
 		type: "DELETE",
 	});
 }

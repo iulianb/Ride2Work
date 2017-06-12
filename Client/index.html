@@ -15,229 +15,137 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
+    <base href="/">
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-toggleable-sm absolute-top">
-        <button class="navbar-toggler navbar-toggler-right mobile-nav" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-            <label class="nav-label mr-1x" for="nav-check">
-              <i class="fa fa-bars fa-2x"></i>
-              <i class="fa fa-times fa-2x no-display"></i>
-            </label>
-        </span>
-      </button>
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-        <a id="main-logo" href="/index.html">
-            <img class="img-fluid" src="images/ride2work-logo.png">
-        </a>
+	<div class="navigation-load">
+		<nav class="navbar navbar-toggleable-sm absolute-top">
+		<button class="navbar-toggler navbar-toggler-right mobile-nav" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon">
+			<label class="nav-label mr-1x" for="nav-check">
+			  <i class="fa fa-bars fa-2x"></i>
+			  <i class="fa fa-times fa-2x no-display"></i>
+			</label>
+		</span>
+	  </button>
+		<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+		<a id="main-logo" href="#" data-href="home">
+			<img class="img-fluid" src="images/ride2work-logo.png">
+		</a>
 
-        <div class=" main-color collapse navbar-collapse text-center drop-op" id="navbarsExampleDefault">
-            <ul class="navbar-nav mx-auto float-md-right">
-                <li class="nav-item active">
-                    <a class="nav-link scrolling" href="#" data-rel="#events">EVENIMENTE <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrolling" href="#" data-rel="#organizators">COMPANII</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" class="scrolling" href="#" data-rel="#">ARTICOLE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">DESPRE NOI</a>
-                </li> -->
-            </ul>
-        </div>
-    </nav>
+		<div class=" main-color collapse navbar-collapse text-center drop-op" id="navbarsExampleDefault">
+			<ul class="navbar-nav mx-auto float-md-right">
+				<li class="nav-item active">
+					<a class="nav-link scrolling" href="#" data-rel="#events">EVENIMENTE <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link scrolling" href="#" data-rel="#organizators">COMPANII</a>
+				</li>
+				 <!-- <li class="nav-item">
+					<a class="nav-link" class="scrolling" href="#" data-rel="#">ARTICOLE</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link">DESPRE NOI</a>
+				</li> -->
+			</ul>
+		</div>
+	</nav>
+	</div>
 
-    <img class="img-fluid" src="images/landing-photo.png" alt="landing">
-    <a class="scrolling" id="arrow-events" href="#" data-rel="#events">
-        <img class="img-fluid" src="images/down-arrow.png" alt="arrow">
-    </a>
-
-
-    <div class="container-fluid main-color">
-
-        <div id="events" class="row">
-            <!-- ă Ă â Â î Î ș Ș ț Ț -->
-            <div class="col-lg-2"></div>
-            <div class=" col-lg-4 col-md-12">
-                <h4>URMĂTORUL EVENIMENT</h4>
-
-                <div id="kick-off">
-                    <h1>RIDE2WORK KICK-OFF</h1>
-                    <p>Joi 20 Aprilie</p>
-                </div>
+	<div class="content-load"></div>
 
 
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-12 contact">
+					<a id="footer-logo" href="#" data-href="home">
+						<img src="images/ride2work-logo.png" alt="logo">
+					</a>
+					<p style="margin-top: 5px;">contact@ride2work.ro</p>
+					<p>0745 678 901</p>
+					<div class="contact-social">
+						<a href="https://www.facebook.com/Ride2WorkCluj/" target="_blank">
+							<img src="images/facebook.png" alt="facebook-page">
+						</a>
+						<!-- <a href="#">
+							<img id="google-contact" src="images/google-plus.png" alt="google-plus">
+						</a> -->
+						<a href="https://www.instagram.com/ride2workcluj/" target="_blank">
+							<img src="images/instagram.png" alt="instagram-page">
+						</a>
+					</div>
+					<p>Copyright @ Ride2Work.ro 2017</p>
+					<p>Powered by &nbsp;<a href="http://www.contursoft.ro/" target="_blank"><img class="contursoft-logo img-fluid" src="images/contursoft.ro.png" alt="www.contursoft.ro"/></a></p>
+				</div>
+				<div class="col-md-6 col-sm-12 contact-form">
+					<div class="text-center">
+						<ul class="form-legend">
+							<li><a class="scrolling nav-link" data-rel="#events" href="#">EVENIMENTE</a></li>
+							<li><a class="scrolling nav-link" data-rel="#organizators" href="#">COMPANII</a></li>
+							<!-- <li><a href="#">ARTICOLE</a></li>
+							<li><a href="#">DESPRE NOI</a></li> -->
+						</ul>
+					</div>
 
-                <p id="event-details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<form id="details-form">
+						<p id="form-status" class="form-error"></p>
+						<textarea class="message" placeholder="Salut...">
 
-                <a id="previous-events" href="events.html">EVENIMENTE ANTERIOARE</a>
+						</textarea>
+						<div class="md-input">
+							<input id="subject1" type="text" placeholder="" disabled>
+						</div>
+						<div class="md-input">
+							<input id="subject2" type="text" placeholder="" disabled>
+						</div>
+						<div class="md-input">
+							<input id="subject3" type="text" placeholder="" disabled>
+						</div>
+						<div class="md-input">
+							<input id="subject4" type="text" placeholder="" disabled>
+						</div>
+						<div class="md-input">
+							<input id="subject5" type="text" placeholder="" disabled>
+						</div>
 
-            </div>
+						<div class="row">
+							<div class="col-sm-6 md-input">
+								<input id="email" type="email" placeholder="Email Address">
+							</div>
+							<div class="col-sm-6 text-center">
+								<a id="form-send" class="green-button" href="#form-status">
+								Trimite
+								</a>
+							</div>
+						</div>
 
-            <div class="col-lg-6 col-md-12 cls-mobi" style="margin-top: 0.5rem;">
-                <img id="map" class="img-fluid" src="images/map.png">
-                <img id="sponsor" class="img-fluid" src="images/event-sponsor.png">
-            </div>
+					</form>
+				</div>
+			</div>
+		</div>
 
-        </div>
+	</footer>
 
-        <div class="container text-center">
-
-            <div class="row">
-                <div class="col-md-12 font-bold">
-                    <h2>Become a bike-friendly company</h2>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- ă Ă â Â î Î ș Ș ț Ț -->
-                <div class="col-md-12 mx-auto">
-                    <div class="biker-friendly">
-                        <p>Împreună sperăm să rezolvăm din problemele care previn angajații să considere bicicleta</p>
-                        <p>o modalitate viabilă de transport la serviciu, fie ele legate de costurile de achiziție a unei biciclete,</p>
-                        <p>de siguranța biciclistului în trafic sau de siguranța unei biciclete parcate</p>
-                    </div>
-                </div>
-            </div>
-
-            <br><br><br>
-            <div class="row points-row">
-                <div class="col-md-1"></div>
-                <div class="col-md-3 text-center">
-                    <img class="img-fluid" src="images/1-romb.png" alt="romb-1">
-                    <p>Completezi un chestionar și ne ajuți să cunoaștem compania mai bine</p>
-                </div>
-
-                <div class="col-md-1">
-                    <hr class="between">
-                </div>
-
-                <div class="col-md-3 text-center">
-                    <img class="img-fluid" src="images/2-romb.png" alt="romb-2">
-                    <p>Stabilim o întalnânire și discutăm despre obiectivele tale și posibile direcții</p>
-                </div>
-
-                <div class="col-md-1">
-                    <hr class="between">
-                </div>
-
-                <div class="col-md-3 text-center">
-                    <img class="img-fluid" src="images/3-romb.png" alt="romb-3">
-                    <p>Implementăm o strategie alături de materiale personalizate care evidențiază poziția companiei</p>
-                </div>
-
-            </div>
-            <!-- <a class="green-button" href="#">Începe acum</a> -->
-        </div>
-    </div>
-
-
-    <div>
-        <img class="img-fluid pos-absolute" src="images/parc-1.png" alt="">
-        <img class="img-fluid" src="images/parc-2.png" alt="">
-    </div>
-
-    <div class="container-fluid sponsors">
-        <div class="row">
-            <div id="organizators" class="col-md-6 col-sm-12">
-                <p>Organizatori</p>
-                <img class="img-fluid" src="images/logo-organizatori.png" alt="organizatori">
-            </div>
-            <div id="partners" class="col-md-6 col-sm-12">
-                <p>Parteneri</p>
-                <img class="img-fluid" src="images/logo-parteneri.png" alt="parteneri">
-            </div>
-        </div>
-    </div>
+    <a href="./about">/about</a>
+    <p class="par"></p>
 
 
-    <footer>
-        <!-- <img class="img-footer pos-absolute" src="images/background-logo-footer.png" alt="footer-bg"> -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12 contact">
-                    <a id="footer-logo" href="/index.html">
-                        <img src="images/ride2work-logo.png" alt="logo">
-                    </a>
-                    <p style="margin-top: 5px;">contact@ride2work.ro</p>
-                    <p>0745 678 901</p>
-                    <div class="contact-social">
-                        <a href="https://www.facebook.com/Ride2WorkCluj/" target="_blank">
-                            <img src="images/facebook.png" alt="facebook-page">
-                        </a>
-                        <!-- <a href="#">
-                            <img id="google-contact" src="images/google-plus.png" alt="google-plus">
-                        </a> -->
-                        <a href="https://www.instagram.com/ride2workcluj/" target="_blank">
-                            <img src="images/instagram.png" alt="instagram-page">
-                        </a>
-                    </div>
-                    <p>Copyright @ Ride2Work.ro 2017</p>
-                    <p>Powered by &nbsp;<a href="http://www.contursoft.ro/" target="_blank"><img class="contursoft-logo img-fluid" src="images/contursoft.ro.png" alt="www.contursoft.ro"/></a></p>
-                </div>
-                <div class="col-md-6 col-sm-12 contact-form">
-                    <div class="text-center">
-                        <ul class="form-legend">
-                            <li><a class="scrolling nav-link" data-rel="#events" href="#">EVENIMENTE</a></li>
-                            <li><a class="scrolling nav-link" data-rel="#organizators" href="#">COMPANII</a></li>
-                            <!-- <li><a href="#">ARTICOLE</a></li>
-                            <li><a href="#">DESPRE NOI</a></li> -->
-                        </ul>
-                    </div>
-
-                    <form id="details-form">
-                        <p id="form-status" class="form-error"></p>
-                        <textarea class="message" placeholder="Salut...">
-
-                        </textarea>
-                        <div class="md-input">
-                            <input id="subject1" type="text" placeholder="" disabled>
-                        </div>
-                        <div class="md-input">
-                            <input id="subject2" type="text" placeholder="" disabled>
-                        </div>
-                        <div class="md-input">
-                            <input id="subject3" type="text" placeholder="" disabled>
-                        </div>
-                        <div class="md-input">
-                            <input id="subject4" type="text" placeholder="" disabled>
-                        </div>
-                        <div class="md-input">
-                            <input id="subject5" type="text" placeholder="" disabled>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-6 md-input">
-                                <input id="email" type="email" placeholder="Email Address">
-                            </div>
-                            <div class="col-sm-6 text-center">
-                                <a id="form-send" class="green-button" href="#form-status">
-                                Trimite
-                                </a>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </footer>
 
     <!-- JS assets -->
     <script type="text/javascript" src="js/assets/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/assets/tether.min.js"></script>
     <script type="text/javascript" src="js/assets/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
     <!-- Custom JS -->
     <script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/paging.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+
 
 </body>
 
