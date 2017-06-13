@@ -1,7 +1,25 @@
-page.base("/");
-page('/about', about);
+// page.base("/routes");
+var contentLoad = $(".content-load");
 
-function about() {
-	console.log("ABOUUUUT");
-	document.querySelector('.p').textContent = 'viewing about';
+function loadPage(href) {
+	contentLoad.load(href);
 }
+
+page("/home", function () {
+	loadPage("home.html");
+});
+
+page("/events", function () {
+	loadPage("events.html");
+});
+
+page("/articles", function () {
+	loadPage("articles.html");
+});
+
+page.redirect("/home");
+
+page.start({
+	hashbang: true
+});
+// page.exit("/home", function(next) { next(); } );
