@@ -11,6 +11,14 @@ namespace Server
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // Controllers with Actions
+            config.Routes.MapHttpRoute(
+                name: "ActionApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            // Controller Only
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
