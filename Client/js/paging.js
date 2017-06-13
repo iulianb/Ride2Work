@@ -17,7 +17,7 @@ page("/articles", function () {
 	loadPage("articles.html");
 });
 
-page.redirect("/home");
+// page.redirect("/home");
 
 page.start({
 	hashbang: true
