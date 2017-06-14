@@ -17,7 +17,9 @@ page("/articles", function () {
 	loadPage("articles.html");
 });
 
-// page.redirect("/home");
+page.redirect("/home", function () {
+		contentLoad.empty();
+});
 
 page.start({
 	hashbang: true
