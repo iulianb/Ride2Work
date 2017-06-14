@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	"use strict";
-	
+
 	$(".scrolling").on("click", function () {
 		var target = $(this).data('rel');
 		   var $target = $(target);
