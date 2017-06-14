@@ -6,20 +6,27 @@ function loadPage(href) {
 }
 
 page("/home", function () {
+	sessionStorage.setItem("currentPage", "home");
 	loadPage("home.html");
 });
 
 page("/events", function () {
+	sessionStorage.setItem("currentPage", "events");
 	loadPage("events.html");
 });
 
 page("/articles", function () {
+	sessionStorage.setItem("currentPage", "articles");
 	loadPage("articles.html");
 });
 
-page.redirect("/home", function () {
-		contentLoad.empty();
-});
+
+var currentPage = "home";
+
+currentPage = sessionStorage.getItem("currentPage");
+
+console.log(currentPage);
+page.redirect('/' + currentPage);
 
 page.start({
 	hashbang: true
