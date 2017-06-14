@@ -1,0 +1,418 @@
+.starter-template {
+    margin-top: 5rem;
+}
+
+#main-logo {
+    margin-left: 25%;
+}
+
+#main-logo:hover {
+    opacity: 0.7;
+}
+
+.main-color {
+    color: #2E3192!important;
+}
+
+/*					*/
+/*	GLOBAL RULES	*/
+/*					*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold!important;
+	color: #2E3192!important;
+}
+
+ul:not(.form-legend) {
+    margin-right: 10%;
+}
+
+a {
+    font-weight: bold;
+    color: #2E3192!important;
+}
+
+a.scrolling {
+    text-decoration: none;
+}
+
+a.nav-link:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #2E3192;
+	visibility: hidden;
+	-webkit-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+a.nav-link:hover:before {
+	visibility: visible;
+	-webkit-transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+.middle-stuff {
+    font-weight: bold;
+    color: #2E3192!important;
+}
+
+
+/*p {
+	color: #2E3192!important;
+}*/
+
+/*					*/
+/*	EVENTS RULES	*/
+/*					*/
+
+#events {
+    margin: 100px 0px 200px 0px;
+}
+
+#kick-off {
+    margin: 100px 0px;
+}
+
+#kick-off h1 {
+    font-size: 2.25rem;
+}
+
+#event-details {
+    opacity: 0.6;
+}
+
+#previous-events {
+    font-size: 23px;
+    opacity: 0.85;
+    text-decoration: underline;
+}
+
+.mega-fluid-img {
+    min-width: 100%;
+}
+
+.nav-link {
+    position: relative;
+}
+
+
+.pin {
+    position: absolute;
+    top: 25%;
+    left: 85%;
+}
+
+.green-map-zone {
+    position: absolute;
+    top: 35%;
+    left: 80%;
+    transform: rotate(22deg);
+}
+
+#map {
+    position: relative;
+    /*height: 85%;*/
+    /*left: 10%;*/
+}
+
+#sponsor {
+    position: relative;
+    left: 30%;
+    bottom: 15%;
+    height: 30%;
+}
+
+.ali {
+    margin: 0 auto;
+}
+
+.biker-friendly>p {
+    margin-bottom: 0px;
+}
+
+.absolute-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+#arrow-events {
+	position: relative;
+    bottom: 90px;
+	left: 50%;
+}
+
+.green-button {
+    background: #74e77d;
+    border-radius: 1000px;
+    padding: 18px 24px;
+    text-decoration: none!important;
+    display: inline-block;
+    font: normal 700 24px/1 "Calibri", sans-serif;
+    text-align: center;
+    text-shadow: none;
+    margin-top: 15px;
+}
+
+.green-button:hover {
+    opacity: 0.5;
+}
+
+.sponsors {
+    margin-top: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 20%;
+    width: 100%;
+    background-color: #2E3192;
+    color: #ffffff!important;
+}
+
+#organizators {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#partners {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+/*					*/
+/*	FOOTER RULES	*/
+/*					*/
+
+.img-footer {
+	max-width: 100%;
+	min-height: 80%;
+}
+
+footer {
+    background: url("../images/background-logo-footer.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.contact {
+	color: #fff;
+    text-align: center; /* Align center or left */
+}
+
+.contact,
+.contact-form {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.contact-social {
+	margin-top: 20%;
+	margin-bottom: 5%;
+}
+
+.contact-social > a {
+    margin: 0 15px;
+}
+
+.contact-social > a:hover {
+    opacity: 0.65;
+}
+
+#google-contact {
+	margin-right: 20px;
+	margin-left:20px;
+}
+
+.md-input>input {
+    box-sizing: border-box;
+    display: block;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-bottom: 2px solid rgba(46, 49, 146, 1);
+    outline: 0;
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    font-size: 16px;
+    font-family: inherit;
+    line-height: inherit;
+    background-image: none;
+}
+
+.form-legend {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.form-legend>li {
+    padding: 10px;
+}
+
+.form-legend>li>a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff!important;
+}
+
+.no-display {
+    display: none;
+}
+
+.message {
+    overflow: hidden;
+    position: absolute;
+    color: white;
+    background: none;
+    line-height: 47px;
+    width: 92%;
+    height: 240px;
+    border: 0px;
+}
+
+.message:focus {
+    outline: 0;
+}
+
+#footer-logo:hover {
+    opacity: 0.7;
+}
+
+#form-status {
+    font-size: 18px;
+}
+
+.form-success {
+    color: #5fce68;
+}
+
+.form-error {
+    color: #e45a24;
+}
+
+.contursoft-logo {
+    height: 40px;
+    margin-left: 5px;
+}
+
+/*					*/
+/*	MEDIA QUERIES	*/
+/*					*/
+
+@media (min-width: 768px) {
+    .between {
+        position: relative;
+        border: 0.5px solid #74e77d;
+        top: 35px;
+        right: 115px;
+        min-width: 297px;
+    }
+    .points-row {
+        margin-left: -100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cls-mobi {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .mobile-nav {
+        padding-right: 18px;
+        padding-bottom: 18px;
+        background: #76e77e;
+        cursor: pointer;
+    }
+
+    .drop-op {
+        background-color: #fff;
+        opacity: 0.7;
+    }
+
+    #main-logo {
+        margin: 0;
+        width: 60px;
+    }
+
+    #arrow-events {
+        position: relative;
+        bottom: 40px;
+        left: 50%;
+    }
+
+    .between {
+        display: none;
+    }
+
+    .form-legend {
+        flex-direction: column;
+    }
+
+    #events {
+        margin: 100px 0px;
+    }
+
+    #sponsor {
+        max-width: 25%;
+    }
+
+    .message {
+        width: 340px;
+        height: 250px;
+    }
+
+}
+
+@media (max-width: 1560px) {
+    .middle-stuff {
+        text-align: center;
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    .cls-mobi {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    #event-info {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .between {
+        right: 95px;
+        min-width: 247px;
+    }
+}
+
+@media (max-width: 992px) {
+    .between {
+        right: 65px;
+        min-width: 167px;
+    }
+
+}
