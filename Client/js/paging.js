@@ -23,9 +23,11 @@ page("/articles", function () {
 
 var currentPage = "home";
 
-currentPage = sessionStorage.getItem("currentPage");
+if (sessionStorage.getItem("currentPage")) {
+	currentPage = sessionStorage.getItem("currentPage");
+}
 
-console.log(currentPage);
+
 page.redirect('/' + currentPage);
 
 page.start({
