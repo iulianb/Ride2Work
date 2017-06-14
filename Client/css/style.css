@@ -83,10 +83,6 @@ a.nav-link:hover:before {
     font-size: 2.25rem;
 }
 
-#event-details {
-    opacity: 0.6;
-}
-
 #previous-events {
     font-size: 23px;
     opacity: 0.85;
@@ -328,6 +324,10 @@ footer {
 .contursoft-logo {
     height: 40px;
     margin-left: 5px;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /*					*/
