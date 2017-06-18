@@ -1,4 +1,4 @@
-function formSend() {
+function login() {
     var username = "";
     var password = "";
  
@@ -19,6 +19,26 @@ function formSend() {
         })
         .done(function (mess) {
             console.log(mess);
+        });
+    }
+};
+
+function sendPassword() {
+    var email = "";
+    email = $("#email")[0].value;
+    if (email === "") {
+        alert("You must enter email address.");
+    }
+    else {
+        $.ajax({
+            url: "http://localhost:49421/api/Login/ForgotPassword",
+            type: "POST",
+            data: {
+                email: email
+            }
+        })
+        .done(function (mess) {
+            console.log(mess);            
         });
     }
 };
