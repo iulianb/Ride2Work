@@ -13,11 +13,15 @@ page("/", function () {
 page("/events", function () {
 	sessionStorage.setItem("currentPage", "/events");
 	loadPage("events.html");
+	$("#js-page").empty()
+	.append('<script type="text/javascript" src="js/articles.js"></script>');
 });
 
 page("/articles", function () {
 	sessionStorage.setItem("currentPage", "/articles");
 	loadPage("articles.html");
+	$("#js-page").empty()
+	.append('<script type="text/javascript" src="js/articles.js"></script>');
 });
 
 
