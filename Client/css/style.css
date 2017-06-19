@@ -72,19 +72,15 @@ a.nav-link:hover:before {
 /*					*/
 
 #events {
-    margin: 100px 0px 200px 0px;
+    margin: 100px 0px;
 }
 
 #kick-off {
-    margin: 100px 0px;
+    margin: 50px 0px;
 }
 
 #kick-off h1 {
     font-size: 2.25rem;
-}
-
-#event-details {
-    opacity: 0.6;
 }
 
 #previous-events {
@@ -149,9 +145,9 @@ a.nav-link:hover:before {
 }
 
 #arrow-events {
-	position: relative;
-    bottom: 90px;
-	left: 50%;
+    position: absolute;
+    top: -20%;
+    left: 50%;
 }
 
 .green-button {
@@ -174,7 +170,7 @@ a.nav-link:hover:before {
     margin-top: 5%;
     padding-top: 5%;
     padding-bottom: 5%;
-    padding-left: 20%;
+    text-align: center;
     width: 100%;
     background-color: #2E3192;
     color: #ffffff!important;
@@ -185,9 +181,18 @@ a.nav-link:hover:before {
     padding-bottom: 50px;
 }
 
+#organizators p,#partners p{
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
 #partners {
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.steps {
+    margin-top: 1rem;
 }
 
 
@@ -215,7 +220,7 @@ footer {
 
 .contact,
 .contact-form {
-    margin-top: 3%;
+    margin-top: 30px;
     margin-bottom: 3%;
 }
 
@@ -296,6 +301,10 @@ footer {
     outline: 0;
 }
 
+#footer-logo {
+    margin-bottom: 20px;
+}
+
 #footer-logo:hover {
     opacity: 0.7;
 }
@@ -315,6 +324,10 @@ footer {
 .contursoft-logo {
     height: 40px;
     margin-left: 5px;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /*					*/
@@ -358,9 +371,7 @@ footer {
     }
 
     #arrow-events {
-        position: relative;
-        bottom: 40px;
-        left: 50%;
+        top: -8% !important;
     }
 
     .between {
@@ -384,6 +395,10 @@ footer {
         height: 250px;
     }
 
+    #event-details {
+        width: 100% !important;
+    }
+
 }
 
 @media (max-width: 1560px) {
@@ -398,7 +413,19 @@ footer {
     }
 
     #event-info {
+        text-align: center;
         min-width: 100%;
+    }
+
+    #arrow-events {
+        position: absolute;
+        top: -11%;
+        left: 50%;
+    }
+
+    #event-details {
+        width: 50%;
+        margin: 5rem auto;
     }
 }
 
@@ -413,6 +440,13 @@ footer {
     .between {
         right: 65px;
         min-width: 167px;
+    }
+
+}
+
+@media (max-width: 378px) {
+    #arrow-events {
+        display: none;
     }
 
 }

@@ -1,8 +1,8 @@
-
 //API stuff
 "use strict";
 
-var baseurl = "localhost";//location.host maybe;this will be added from backend
+//Location of the deployed server
+var baseurl = "http://89.44.121.72:8001";
 
 
 /*Call API params:
@@ -21,102 +21,126 @@ function callAPI (variables) {
 		url: baseurl + "/api/" + variables.where,
 		type: variables.type,
 		data: variables.data,
-		success: function(msg) {
-			console.log(msg);
-			return msg;
+		success: function(response) {
+			variables.successCall(response);
 		},
-		error: function(msg) {
-			console.log(msg);
-			return variables.error["" + msg.status];
-
+		error: function(response) {
+			console.log(response);
+			variables.errorCall(variables.error["" + response.status]);
 		}
 	});
 }
 
+
+
 //GET ALL NEEDED INFO
-function getAllUsers() {
+function getAllUsers (success, error) {
 	return callAPI({
 		where: "users",
 		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getAllArticles() {
+function getAllArticles (success, error) {
 	return callAPI({
 		where : "articles",
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getAllComments () {
+function getAllComments (success, error) {
 	return callAPI({
 		where: "comments",
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getAllEvents() {
+function getAllEvents (success, error) {
 	return callAPI({
 		where: "events",
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getAllEventSponsors () {
+function getAllEventSponsors (success, error) {
 	return callAPI({
 		where: "eventsSponsors",
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getAllSponsors() {
+function getAllSponsors(success, error) {
 	return callAPI({
 		where: "Sponsors",
 		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
 
 //GET ONLY SPECIFIC INFO
-function getUser(id) {
+function getUser(id, success, error) {
 	return callAPI({
 		where: "users/" + id,
 		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getArticle (id) {
+function getArticle (id, success, error) {
 	return callAPI({
 		where: "articles/" + id,
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getComment (id) {
+function getComment (id, success, error) {
 	return callAPI({
 		where: "comments/" + id,
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getEvent (id) {
+function getEvent (id, success, error) {
 	return callAPI({
 		where: "events/" + id,
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getEventSponsor (id) {
+function getEventSponsor (id, success, error) {
 	return callAPI({
 		where: "eventsSponsors/" + id,
-		type: "GET"
+		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function getSponsor(id) {
+function getSponsor(id, success, error) {
 	return callAPI({
 		where: "Sponsors/" + id,
 		type: "GET",
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -125,56 +149,68 @@ function getSponsor(id) {
 
 //userData==>{ UserName, Password, Email, Role }
 //responseCodes==>created: 201; not acceptable: 406(same email or username);bad request: 400
-function addUser(userData) {
+function addUser(userData, success, error) {
 	return callAPI({
 		where: "users",
 		type: "POST",
-		data: userData
+		data: userData,
+		successCall : success,
+		errorCall : error
 	});
 }
 
 //articeData==>{ Title,Content, ImagePath, ArticleDate }
-function addArticle(articleData) {
+function addArticle(articleData, success, error) {
 	return callAPI({
 		where: "articles",
 		type: "POST",
-		data: articleData
+		data: articleData,
+		successCall : success,
+		errorCall : error
 	});
 }
 
 //commentData==>{ name, content, commentDate, articleID }
-function addComment(commentData) {
+function addComment(commentData, success, error) {
 	return callAPI({
 		where: "comments",
 		type: "POST",
-		data: commentData
+		data: commentData,
+		successCall : success,
+		errorCall : error
 	});
 }
 
 //eventData==>{ title, description, imagePath, videoLink, eventDate }
-function addEvent(eventData) {
+function addEvent(eventData, success, error) {
 	return callAPI({
 		where: "events",
 		type: "POST",
-		data: eventData
+		data: eventData,
+		successCall : success,
+		errorCall : error
 	});
 }
 
 //eventSponsorData==>{ linkToFacebook, eventID, sponsorID }
-function addEventSponsor(eventSponsorData) {
+function addEventSponsor(eventSponsorData, success, error) {
 	return callAPI({
 		where: "eventsSponsors",
 		type: "POST",
-		data: eventSponsorData
+		data: eventSponsorData,
+		successCall : success,
+		errorCall : error
 	});
 }
 
 //sponsorData==>{ logoLink, name, siteLink, description }
-function addSponsor(sponsorData) {
+function addSponsor(sponsorData, success, error) {
 	return callAPI({
 		where: "Sponsors",
 		type: "POST",
-		data: sponsorData
+		data: sponsorData,
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -186,12 +222,14 @@ var userErrorCodes = {
 		"404" : "Not Found: user was not found in database!",
 		"406" : "Not Acceptable: Inputted email/username must be different!"
 };
-function updateUser(id, userData) {
+function updateUser(id, userData, success, error) {
 	return callAPI({
 		where: "users/" + id,
 		type: "PUT",
 		data: userData,
-		error : userErrorCodes
+		error : userErrorCodes,
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -200,12 +238,14 @@ var articleErrorCodes = {
 		"404" : "Not Found: article was not found in database!",
 		"406" : "Not Acceptable: Inputted title must be different!"
 };
-function updateArticle(id, articleData) {
+function updateArticle(id, articleData, success, error) {
 	return callAPI({
 		where: "articles/" + id,
 		type: "PUT",
 		data: articleData,
-		error : articleErrorCodes
+		error : articleErrorCodes,
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -213,12 +253,14 @@ var commentErrorCodes = {
 		"400" : "Bad Request: Something went wrong!",
 		"404" : "Not Found: article was not found in database!"
 };
-function updateComment(id, commentData) {
+function updateComment(id, commentData, success, error) {
 	return callAPI({
 		where: "comments/" + id,
 		type: "POST",
 		data: commentData,
-		error: commentErrorCodes
+		error: commentErrorCodes,
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -227,12 +269,14 @@ var eventErrorCodes = {
 		"404" : "Not Found: event was not found in database!",
 		"406" : "Not Acceptable: Inputted title must be different!"
 };
-function updateEvent(id, eventData) {
+function updateEvent(id, eventData, success, error) {
 	return callAPI({
 		where: "events/" + id,
 		type: "PUT",
 		data: eventData,
-		error: eventErrorCodes
+		error: eventErrorCodes,
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -242,12 +286,14 @@ var eventSponsorsErrorCodes = {
 		"404" : "Not Found: event sponsor was not found in database!",
 		"406" : "Not Acceptable: Inputted eventID and sponsorID allready exist!"
 };
-function updateEventSponsor(id, eventSponsorData) {
+function updateEventSponsor(id, eventSponsorData, success, error) {
 	return callAPI({
 		where: "eventsSponsors/" + id,
 		type: "PUT",
 		data: eventSponsorData,
-		error: eventSponsorsErrorCodes
+		error: eventSponsorsErrorCodes,
+		successCall : success,
+		errorCall : error
 	});
 }
 
@@ -256,57 +302,71 @@ var sponsorErrorCodes = {
 		"404" : "Not Found: sponsor was not found in database!",
 		"406" : "Not Acceptable: Inputted name already exists!"
 };
-function updateSponsor(id, sponsorData) {
+function updateSponsor(id, sponsorData, success, error) {
 	return callAPI({
 		where: "Sponsors/" + id,
 		type: "PUT",
 		data: sponsorData,
-		error: sponsorErrorCodes
+		error: sponsorErrorCodes,
+		successCall : success,
+		errorCall : error
 	});
 }
 
 //DELETE SPECIFIC INFO
 
-function deleteUser(id) {
+function deleteUser(id, success, error) {
 	return callAPI({
 		where: "users/" + id,
 		type: "DELETE",
+		successCall : success,
+		errorCall : error
 	});
 }
 
 
-function deleteArticle(id) {
+function deleteArticle(id, success, error) {
 	return callAPI({
 		where: "articles/" + id,
 		type: "DELETE",
+		successCall : success,
+		errorCall : error
 	});
 }
 
 
-function deleteComent(id) {
+function deleteComent(id, success, error) {
 	return callAPI({
 		where: "comments/" + id,
-		type: "DELETE"
+		type: "DELETE",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function deleteEvent(id) {
+function deleteEvent(id, success, error) {
 	return callAPI({
 		where: "events/" + id,
 		type: "DELETE",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function deleteEventSponsor(id) {
+function deleteEventSponsor(id, success, error) {
 	return callAPI({
 		where: "eventSponsors/" + id,
-		type: "DELETE"
+		type: "DELETE",
+		successCall : success,
+		errorCall : error
 	});
 }
 
-function deleteSponsor(id) {
+function deleteSponsor(id, success, error) {
 	return callAPI({
 		where: "Sponsors/" + id,
-		type: "DELETE"
+		type: "DELETE",
+		successCall : success,
+		errorCall : error
 	});
 }

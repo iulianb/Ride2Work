@@ -1,5 +1,6 @@
 $(document).ready(function () {
 	"use strict";
+
 	$(".scrolling").on("click", function () {
 		var target = $(this).data('rel');
 		   var $target = $(target);
@@ -86,7 +87,7 @@ $(document).ready(function () {
 					email : email
 				},
 				success: function(msg) {
-					formValidation("Form subbmited successfuly.", true);
+					formValidation("Va multumim, mesajul a fost trimis cu succes.", true);
 					console.log(msg);
 				},
 				error: function(msg) {

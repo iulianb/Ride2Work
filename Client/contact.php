@@ -10,6 +10,4 @@
 		echo "Error in sending message! Please try again";
 	}
 
-	var_dump($send);
-
  ?>

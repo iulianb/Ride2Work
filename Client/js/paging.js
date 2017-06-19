@@ -1,25 +1,38 @@
 // page.base("/routes");
 var contentLoad = $(".content-load");
-
+// sessionStorage.setItem("currentPage", "");
 function loadPage(href) {
 	contentLoad.load(href);
 }
 
-page("/home", function () {
+page("/", function () {
+	sessionStorage.setItem("currentPage", "");
 	loadPage("home.html");
 });
 
 page("/events", function () {
+	sessionStorage.setItem("currentPage", "/events");
 	loadPage("events.html");
+	$("#js-page").empty()
+	.append('<script type="text/javascript" src="js/articles.js"></script>');
 });
 
 page("/articles", function () {
+	sessionStorage.setItem("currentPage", "/articles");
 	loadPage("articles.html");
+	$("#js-page").empty()
+	.append('<script type="text/javascript" src="js/articles.js"></script>');
 });
 
-page.redirect("/home", function () {
-		contentLoad.empty();
-});
+
+var currentPage = "";
+
+if (sessionStorage.getItem("currentPage")) {
+	currentPage = sessionStorage.getItem("currentPage");
+}
+console.log(sessionStorage);
+
+page.redirect('' + currentPage);
 
 page.start({
 	hashbang: true
