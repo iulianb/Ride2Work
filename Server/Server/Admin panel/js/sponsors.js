@@ -10,7 +10,8 @@ $(function () {
                 .append("<td>" + data[i].name + "</td>")
                 .append("<td>" + data[i].description + "</td>")
                 .append("<td>" + data[i].logoLink + "</td>")
-                .append("<td>" + data[i].siteLink + "</td>");
+                .append("<td>" + data[i].siteLink + "</td>")
+                .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
     getAllSponsors(showAllSponsors);

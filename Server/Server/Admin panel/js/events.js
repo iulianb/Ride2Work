@@ -11,7 +11,8 @@ $(function () {
                 .append("<td>" + data[i].description + "</td>")
                 .append("<td>" + data[i].imagePath + "</td>")
                 .append("<td>" + data[i].videoLink + "</td>")
-                .append("<td>" + data[i].eventDate + "</td>");
+                .append("<td>" + data[i].eventDate + "</td>")
+                .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
     getAllEvents(showAllEvents);

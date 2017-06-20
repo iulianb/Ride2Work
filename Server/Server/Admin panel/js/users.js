@@ -10,6 +10,7 @@ $(function () {
                 .append("<td>" + data[i].userName + "</td>")
                 .append("<td>" + data[i].email + "</td>")
                 .append("<td>" + data[i].role + "</td>")
+                .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
     getAllUsers(showAllUsers);

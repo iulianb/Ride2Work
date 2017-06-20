@@ -10,6 +10,7 @@ $(function () {
                 .append("<td>" + data[i].linkToFacebook + "</td>")
                 .append("<td>" + data[i].eventID + "</td>")
                 .append("<td>" + data[i].sponsorID + "</td>")
+                .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
     getAllEventSponsors(showAllEventsSponsors);

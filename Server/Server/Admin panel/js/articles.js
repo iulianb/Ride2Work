@@ -10,7 +10,8 @@ $(function () {
                 .append("<td>" + data[i].title + "</td>")
                 .append("<td>" + data[i].content + "</td>")
                 .append("<td>" + data[i].imagePath + "</td>")
-                .append("<td>" + data[i].articleDate + "</td>");
+                .append("<td>" + data[i].articleDate + "</td>")
+                .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
     getAllArticles(showAllArticles);
