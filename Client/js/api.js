@@ -27,8 +27,7 @@ function callAPI (variables) {
 			variables.successCall(response);
 		},
 		error: function(response) {
-			console.log(response);
-			variables.errorCall(variables.error["" + response.status]);
+			variables.errorCall(response);
 		}
 	});
 }
@@ -181,6 +180,7 @@ function addComment(commentData, success, error) {
 	});
 }
 
+
 //eventData==>{ title, description, imagePath, videoLink, eventDate }
 function addEvent(eventData, success, error) {
 	return callAPI({
@@ -217,97 +217,73 @@ function addSponsor(sponsorData, success, error) {
 //UPDATE SPECIFIC INFO
 //responseCodes: OK: 200;not found: 404; not acceptable: 406; bad request: 400
 
-var userErrorCodes = {
-		"400" : "Bad Request: Something went wrong!",
-		"404" : "Not Found: user was not found in database!",
-		"406" : "Not Acceptable: Inputted email/username must be different!"
-};
+
 function updateUser(id, userData, success, error) {
 	return callAPI({
 		where: "users/" + id,
 		type: "PUT",
 		data: userData,
-		error : userErrorCodes,
+
 		successCall : success,
 		errorCall : error
 	});
 }
 
-var articleErrorCodes = {
-		"400" : "Bad Request: Something went wrong!",
-		"404" : "Not Found: article was not found in database!",
-		"406" : "Not Acceptable: Inputted title must be different!"
-};
+
 function updateArticle(id, articleData, success, error) {
 	return callAPI({
 		where: "articles/" + id,
 		type: "PUT",
 		data: articleData,
-		error : articleErrorCodes,
+
 		successCall : success,
 		errorCall : error
 	});
 }
 
-var commentErrorCodes = {
-		"400" : "Bad Request: Something went wrong!",
-		"404" : "Not Found: article was not found in database!"
-};
 function updateComment(id, commentData, success, error) {
 	return callAPI({
 		where: "comments/" + id,
 		type: "POST",
 		data: commentData,
-		error: commentErrorCodes,
+
 		successCall : success,
 		errorCall : error
 	});
 }
 
-var eventErrorCodes = {
-		"400" : "Bad Request: Something went wrong!",
-		"404" : "Not Found: event was not found in database!",
-		"406" : "Not Acceptable: Inputted title must be different!"
-};
+
 function updateEvent(id, eventData, success, error) {
 	return callAPI({
 		where: "events/" + id,
 		type: "PUT",
 		data: eventData,
-		error: eventErrorCodes,
+
 		successCall : success,
 		errorCall : error
 	});
 }
 
 
-var eventSponsorsErrorCodes = {
-		"400" : "Bad Request: Something went wrong!",
-		"404" : "Not Found: event sponsor was not found in database!",
-		"406" : "Not Acceptable: Inputted eventID and sponsorID allready exist!"
-};
+
 function updateEventSponsor(id, eventSponsorData, success, error) {
 	return callAPI({
 		where: "eventsSponsors/" + id,
 		type: "PUT",
 		data: eventSponsorData,
-		error: eventSponsorsErrorCodes,
+
 		successCall : success,
 		errorCall : error
 	});
 }
 
-var sponsorErrorCodes = {
-		"400" : "Bad Request: Something went wrong!",
-		"404" : "Not Found: sponsor was not found in database!",
-		"406" : "Not Acceptable: Inputted name already exists!"
-};
+
 function updateSponsor(id, sponsorData, success, error) {
 	return callAPI({
 		where: "Sponsors/" + id,
 		type: "PUT",
 		data: sponsorData,
-		error: sponsorErrorCodes,
+
 		successCall : success,
 		errorCall : error
 	});
