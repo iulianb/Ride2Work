@@ -5,6 +5,18 @@ function loadPage(href) {
 	contentLoad.load(href);
 }
 
+// var app = angular.module("myApp", ["ngRoute"]);
+//
+// app.config (function ($routeProvider) {
+// 	$routeProvider
+// 	.when("/", {
+// 		templateUrl : "home.html"
+// 	})
+// 	.when("/articles", {
+// 		templateUrl : "articles.html"
+// 	});
+// });
+
 page("/", function () {
 	sessionStorage.setItem("currentPage", "");
 	loadPage("home.html");
@@ -14,7 +26,7 @@ page("/events", function () {
 	sessionStorage.setItem("currentPage", "/events");
 	loadPage("events.html");
 	$("#js-page").empty()
-	.append('<script type="text/javascript" src="js/articles.js"></script>');
+	.append('<script type="text/javascript" src="js/events.js"></script>');
 });
 
 page("/articles", function () {
