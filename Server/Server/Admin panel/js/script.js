@@ -9,19 +9,22 @@ function login() {
         alert("You must input all fields.");
     }
     else {
-        $.ajax({
-            url: "http://localhost:49421/api/Login/SignIn",
-            type: "POST",
-            data: {
+        signIn({
+           data : {
                 username : username,
                 password : password
-            }
-        })
-        .done(function (mess) {
-            console.log(mess);
-        });
+           }
+        }, loginSuccess, loginError);
     }
 };
+
+function loginSuccess(message) {
+    alert(message);
+}
+
+function loginError(message) {
+    alert(message);
+}
 
 function sendPassword() {
     var email = "";

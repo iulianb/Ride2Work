@@ -2,7 +2,9 @@
 "use strict";
 
 //Location of the deployed server
-var baseurl = "http://89.44.121.72:8001";
+// var baseurl = "http://89.44.121.72:8001";
+var baseurl = "http://localhost:49421";
+
 
 
 /*Call API params:
@@ -30,8 +32,6 @@ function callAPI (variables) {
 		}
 	});
 }
-
-
 
 //GET ALL NEEDED INFO
 function getAllUsers (success, error) {
@@ -368,5 +368,27 @@ function deleteSponsor(id, success, error) {
 		type: "DELETE",
 		successCall : success,
 		errorCall : error
+	});
+}
+
+//LOGIN
+//responseCodes: OK: 200;not found: 404; not acceptable: 406; bad request: 400
+function signIn(userData, success, error) {
+	return callAPI({
+		where: "Login/SignIn",
+		type: "POST",
+		data: userData,
+		successCall: success,
+		errorCall: error
+	});
+}
+
+function forgotPassword(userData, success, error) {
+	return callAPI({
+		where: "Login/ForgotPassword",
+		type: "POST",
+		data: userData,
+		successCall: success,
+		errorCall: error
 	});
 }
