@@ -2,8 +2,8 @@
 "use strict";
 
 //Location of the deployed server
-// var baseurl = "http://89.44.121.72:8001";
-var baseurl = "http://localhost:49421";
+var baseurl = "http://89.44.121.72:8001";
+// var baseurl = "http://localhost:49421";
 
 
 

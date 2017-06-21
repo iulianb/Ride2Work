@@ -35,6 +35,19 @@ $(function () {
 		}
 	}
 
+	function appendComment(success) {
+		$("#article" + success.articleID + " .form-success").empty();
+		$("#article" + success.articleID + " .article-comments")
+		.append(`
+		<p class="comment-user">User->${success.name}</p>
+		<p class="comment-text">Comment->${success.content}</p>
+		<p class="comment-date">Posted->${success.commentDate}</p>`);
+		$("#article" + success.articleID).append('<p class="form-success">Comment Sent!</p>');
+		setTimeout(function () {
+			$("#article" + success.articleID + " .form-success").fadeOut("slow");
+		}, 1000);
+	}
+
 	function postComment(message, id) {
 		var timestamp = new Date().toISOString();
 
@@ -44,7 +57,7 @@ $(function () {
 			commentDate : timestamp,
 			articleID : id
 		},
-		function(success){console.log(success);},
+		appendComment,
 		function(error){console.log(error);}
 	);
 	}
