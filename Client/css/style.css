@@ -43,6 +43,8 @@ a {
 
 a.scrolling {
     text-decoration: none;
+    letter-spacing: 2px;
+    margin: 15px 50px 15px -30px;
 }
 
 a.nav-link:before {
@@ -123,9 +125,7 @@ a.nav-link:hover:before {
     margin: 0 auto;
 }
 
-#companies {
-    width: 50%;
-}
+
 
 #b-friendly {
     text-shadow: 2px 0 #2E3192;
@@ -252,6 +252,10 @@ footer {
 	margin-left:20px;
 }
 
+.awsum-fa {
+    color: #fff !important;
+}
+
 .md-input>input {
     box-sizing: border-box;
     display: block;
@@ -290,8 +294,6 @@ footer {
     font-size: 18px;
     font-weight: bold;
     color: #fff!important;
-    padding: 15px 45px 15px 0px;
-    letter-spacing: 2px;
 }
 
 .no-display {
@@ -360,12 +362,21 @@ footer {
         right: 175%;
         min-width: 445%;
     }
+
     .points-row {
         margin-left: -100px;
+    }
+
+    #companies {
+        width: 50%;
     }
 }
 
 @media (max-width: 768px) {
+    a.scrolling {
+        margin: 0 auto;
+    }
+
     .cls-mobi {
         max-width: 100%;
         flex: 0 0 100%;
@@ -391,8 +402,6 @@ footer {
     #arrow-events {
         top: -8% !important;
     }
-
-
 
     .sponsors {
         text-align: center;
