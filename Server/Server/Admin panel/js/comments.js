@@ -8,10 +8,10 @@ $(function () {
             $("#row" + i)
                 .append("<td>" + data[i].id + "</td>")
                 .append("<td>" + data[i].name + "</td>")
-                .append("<td>" + data[i].content + "</td>")
+                .append("<td><div class='content'>" + data[i].content + "</div></td>")
                 .append("<td>" + data[i].commentDate + "</td>")
                 .append("<td>" + data[i].articleID + "</td>")
-                .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
+                .append("<td><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
     getAllComments(showAllComments);
