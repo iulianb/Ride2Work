@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201706051640159_CorrectedModels.Designer.cs">
       <DependentUpon>201706051640159_CorrectedModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706221918047_AfterDiscussions.cs" />
+    <Compile Include="Migrations\201706221918047_AfterDiscussions.Designer.cs">
+      <DependentUpon>201706221918047_AfterDiscussions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -192,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706051640159_CorrectedModels.resx">
       <DependentUpon>201706051640159_CorrectedModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221918047_AfterDiscussions.resx">
+      <DependentUpon>201706221918047_AfterDiscussions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

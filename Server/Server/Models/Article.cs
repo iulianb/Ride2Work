@@ -12,6 +12,8 @@ namespace Server.Models
         public string Content { get; set; }
         public string ImagePath { get; set; }
         public DateTime ArticleDate { get; set; }
+        public DateTime LastEditDate { get; set; }
+        public int LastEditUserID { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
     }

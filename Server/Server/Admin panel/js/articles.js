@@ -11,6 +11,8 @@ $(function () {
                 .append("<td><div class='content'>" + data[i].content + "</div></td>")
                 .append("<td><img src='" + data[i].imagePath + "' width='25' height='25'</img></td>")
                 .append("<td>" + data[i].articleDate + "</td>")
+                .append("<td>" + data[i].lastEditDate + "</td>")
+                .append("<td>" + data[i].lastEditUserID + "</td>")
                 .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
