@@ -12,7 +12,8 @@
 }
 
 #main-logo {
-    margin-left: 25%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 #main-logo:hover {
@@ -91,7 +92,8 @@ a.nav-link:hover:before {
 }
 
 #kick-off h1 {
-    font-size: 2.25rem;
+    font-size: 1.8rem;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #previous-events {
@@ -128,9 +130,7 @@ a.nav-link:hover:before {
 
 
 #b-friendly {
-    text-shadow: 2px 0 #2E3192;
-    letter-spacing: 2px;
-    margin-bottom: 50px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .biker-friendly>p {
@@ -159,13 +159,13 @@ a.nav-link:hover:before {
     color: #1a1a1a !important;
     background: #73e67c;
     border-radius: 1000px;
-    padding: 10px 50px;
+    padding: 17px 66px;
     text-decoration: none !important;
     display: inline-block;
-    font: normal 700 24px/1 "Calibri", sans-serif;
+    font: normal 700 18px/1 "Open Sans", sans-serif;
     text-align: center;
     text-shadow: none;
-    margin-top: 35px;
+    margin-top: 55px;
 }
 
 .green-button:hover {
@@ -177,7 +177,7 @@ a.nav-link:hover:before {
     padding-top: 2%;
     padding-bottom: 2%;
     /*text-align: center;*/
-    width: 100%;
+    /*width: 100%;*/
     background-color: #2E3192;
     color: #ffffff!important;
 }
@@ -231,7 +231,7 @@ footer {
 }
 
 .contact-social {
-	margin-top: 110px;
+	margin-top: 90px;
 	margin-bottom: 50px;
 }
 
@@ -316,14 +316,14 @@ footer {
 }
 
 #footer-logo {
-    margin-bottom: 57px;
+    margin-bottom: 45px;
 }
 
 #footer-logo:hover {
     opacity: 0.7;
 }
 
-#form-status {
+tatus {
     font-size: 18px;
 }
 
@@ -344,9 +344,23 @@ footer {
     text-decoration: underline;
 }
 
-#email {
-    margin-top: 30px;
+#contact-email {
+    margin-top: 10px;
 }
+
+.powered {
+    font-size: 13px;
+}
+
+#email {
+    margin-top: 60px;
+    width: 280px;
+}
+
+.send-mail {
+    margin-top: 70px;
+}
+
 
 /*					*/
 /*	MEDIA QUERIES	*/
@@ -355,12 +369,10 @@ footer {
 @media (min-width: 768px) {
     .between {
         position: relative;
-        border: 0.5px solid #74e77d;
-        top: 34px;
-        /*right: 90px;
-        min-width: 235px;*/
-        right: 175%;
-        min-width: 445%;
+        border: 0.1px solid #a4efaa;
+        top: 31px;
+        right: 173%;
+        min-width: 443%;
     }
 
     .points-row {
@@ -373,6 +385,7 @@ footer {
 }
 
 @media (max-width: 768px) {
+
     a.scrolling {
         margin: 0 auto;
     }
@@ -463,15 +476,13 @@ footer {
 }
 
 @media (max-width: 1200px) {
-    /*.between {
-        right: 95px;
-        min-width: 247px;
-    }*/
+    .between {
+        right: 200%;
+        min-width: 483%;
+    }
 }
 
 @media (max-width: 992px) {
-
-
     .between {
         display: none;
     }

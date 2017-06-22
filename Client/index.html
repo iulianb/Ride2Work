@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Ride2Work">
     <meta name="theme-color" content="#74e77d" />
-	
+
 	<meta property="og:url" content="http://ride2work.ro/"/>
 	<meta property="og:title" content="Ride2Work"/>
 	<meta property="og:description" content="Ride2Work"/>
 	<meta property="og:site_name" content="Ride2Work"/>
 	<meta property="og:image" content="http://ride2work.ro/images/ride2work-logo-og.png"/>
-	
+
     <link rel="icon" href="favicon.ico">
 
     <title>Ride2Work</title>
@@ -20,6 +20,7 @@
     <!-- CSS assets -->
     <link href="css/assets/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
     <!-- Custom styles -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -53,7 +54,7 @@
 				</a>
 
 				<div class=" main-color collapse navbar-collapse text-center drop-op" id="navbarsExampleDefault">
-					<ul class="navbar-nav mx-auto float-md-right">
+					<ul class="navbar-nav mx-auto">
 						<li class="nav-item active">
 							<a class="nav-link scrolling" href="#" data-rel="#events">EVENIMENTE <span class="sr-only">(current)</span></a>
 						</li>
@@ -82,8 +83,10 @@
 					<div class="col-md-6 col-sm-12 contact">
 						<a href="/" data-href="/">
 							<img id="footer-logo" src="images/ride2work-logo.png" alt="logo">
-						</a>
-						<p style="margin-top: 5px;">contact@ride2work.ro</p>
+						</a><br>
+                        <span>Proiect realizat cu sprijinul</span>
+                        <p>Primăriei și Consiliului Local Cluj-Napoca.</p>
+						<p id="contact-email">contact@ride2work.ro</p>
 						<p>0745 517 329</p>
 						<div class="contact-social">
 							<a href="https://www.facebook.com/Ride2WorkCluj/" target="_blank">
@@ -97,9 +100,12 @@
                                 <i class="awsum-fa fa fa-instagram fa-3x" aria-hidden="true"></i>
 							</a>
 						</div>
-						<p>Copyright @ Ride2Work.ro 2017</p>
-						<p>Powered by &nbsp;<a href="http://www.contursoft.ro/" target="_blank"><img class="contursoft-logo img-fluid" src="images/contursoft.ro.png" alt="www.contursoft.ro"/></a></p>
+                        <div class="powered">
+                            <p>Copyright @ Ride2Work.ro 2017</p>
+                            <p>Powered by &nbsp;<a href="http://www.contursoft.ro/" target="_blank"><img class="contursoft-logo img-fluid" src="images/contursoft.ro.png" alt="www.contursoft.ro"/></a></p>
+                        </div>
 					</div>
+
 					<div class="col-md-6 col-sm-12 contact-form">
 						<div class="text-center">
 							<ul class="form-legend">
@@ -131,7 +137,7 @@
 								<input id="subject5" type="text" placeholder="" disabled>
 							</div>
 
-							<div class="row">
+							<div class="row send-mail">
 								<div class="col-sm-6 md-input">
 									<input id="email" type="email" placeholder="Email Address">
 								</div>
