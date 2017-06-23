@@ -83,11 +83,14 @@ namespace Server.Controllers
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The title already exists");
                     }
-                    oldValue.Description = value.Description;
-                    oldValue.ImagePath = value.ImagePath;
-                    oldValue.EventDate = value.EventDate;
                     oldValue.Title = value.Title;
+                    oldValue.Description = value.Description;
+                    oldValue.SponsorImage = value.SponsorImage;
+                    oldValue.MapImage = value.MapImage;
+                    oldValue.MapImageLink = value.MapImageLink;
                     oldValue.VideoLink = value.VideoLink;
+                    oldValue.EventDate = value.EventDate;
+                    oldValue.IsPrevious = value.IsPrevious;
                     db.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK, oldValue);
                 }
