@@ -2,36 +2,50 @@ $(function () {
 
 	function showArticles(data) {
 		var len = data.length;
+		sessionStorage.setItem("currentArticle", data[len - 1].id);
+		// console.log(sessionStorage.getItem("currentArticle"));
 		$(".articles").empty();
 
-		for (var i = 0; i < len; i++) {
+		for (var i = len - 1; i >= 0; i--) {
+			if (data[i].id != sessionStorage.getItem("currentArticle")) {
 
-			$(".articles").append(`<div id="article${data[i].id}"></div>`);
+				$(".articles").append(`<div id="article${data[i].id}"></div>`);
 
-			$("#article" + data[i].id)
-			.append(`
-			<h2 class="article-title">${data[i].title}</h2>
-			<p class="article-content">${data[i].content}</p>
-			<img class="article-image" src="${data[i].imagePath}">${data[i].imagePath}
-			<p>Data postarii:${data[i].articleDate}</p>
-			<div class="article-comments"></div>
-			<input id="comment-box-${data[i].id}" type="text">
-			<button id="comment-button-${data[i].id}" class="comment-b">Send</button>`);
+				$("#article" + data[i].id)
+				.append(`
+					<h2 class="article-title">${data[i].title}</h2>
+					<p class="article-content">${data[i].content}</p>
+					<img class="article-image" src="${data[i].imagePath}">${data[i].imagePath}
+					<p>Data postarii:${data[i].articleDate}</p>
+					<div class="article-comments"></div>
+					<input id="comment-box-${data[i].id}" type="text">
+					<button id="comment-button-${data[i].id}" class="comment-b">Send</button>`);
+			}
+			else {
+				// $(".main-image").attr("src", `${data[i].imagePath}`);
+				$(".main-article")
+				.append(`
+					<h2 class="article-title">${data[i].title}</h2>
+					<p class="article-content">${data[i].content}</p>
+				`);
+			}
 		}
 	}
 
 	function showComments(data) {
 		var len = data.length;
 
-		for (var i = 0; i < len; i++)
+		for (var i = len - 1; i >= 0; i--)
 			$(`#article${i} .article-comments`).empty();
 
-		for (var i = 0; i < len; i++) {
+		for (var i = len - 1; i >= 0; i--) {
+			if (data[i].id != sessionStorage.getItem("currentArticle")) {
 			$("#article" + data[i].articleID + " .article-comments")
 			.append(`
 			<p class="comment-user">User->${data[i].name}</p>
 			<p class="comment-text">Comment->${data[i].content}</p>
 			<p class="comment-date">Posted->${data[i].commentDate}</p>`);
+		}
 		}
 	}
 
@@ -65,7 +79,7 @@ $(function () {
 	function addHandle () {
 		var commentButtons = $(".comment-b") + 1;
 
-		for(let i = 1; i < commentButtons.length; i++) {
+		for(let i = commentButtons.length; i >= 0 ; i--) {
 			$("#comment-button-" + i).click(function () {
 				var comment = $("#comment-box-" + i);
 

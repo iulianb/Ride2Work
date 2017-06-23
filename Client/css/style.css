@@ -137,13 +137,13 @@ a.nav-link:hover:before {
     margin-bottom: 0px;
 }
 
-.absolute-top {
+/*.absolute-top {
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1030;
-}
+}*/
 
 .pos-absolute {
     position: absolute;
@@ -390,6 +390,10 @@ tatus {
 /*					*/
 /*	Articles Page 	*/
 /*					*/
+
+.previous-articles {
+    margin: 200px 0 100px 0;
+}
 
 .rhomb {
   -webkit-box-sizing: content-box;
