@@ -159,7 +159,7 @@ a.nav-link:hover:before {
     color: #1a1a1a !important;
     background: #73e67c;
     border-radius: 1000px;
-    padding: 17px 66px;
+    padding: 17px 50px;
     text-decoration: none !important;
     display: inline-block;
     font: normal 700 18px/1 "Open Sans", sans-serif;
@@ -195,6 +195,7 @@ a.nav-link:hover:before {
 #partners {
     padding-top: 50px;
     padding-bottom: 50px;
+    margin-left: 4%;
 }
 
 .steps {
@@ -230,6 +231,10 @@ footer {
 .contact-form {
     margin-top: 30px;
     margin-bottom: 3%;
+}
+
+.contact-form {
+    margin-left: 4%;
 }
 
 .contact-social {
@@ -357,7 +362,7 @@ tatus {
 
 #email {
     margin-top: 60px;
-    width: 280px;
+    width: 210px;
 }
 
 .send-mail {
@@ -483,6 +488,25 @@ tatus {
 
     #event-details {
         width: 100% !important;
+    }
+
+    #organizators .pull-left,
+    #partners .pull-right {
+        float: none;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    #partners,
+    .contact-form {
+        margin-left: 0;
+    }
+
+    a.nav-link,
+    a.nav-link:hover {
+        width: 150px;
     }
 
 }
