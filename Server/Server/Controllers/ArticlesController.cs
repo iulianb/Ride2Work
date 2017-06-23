@@ -83,10 +83,12 @@ namespace Server.Controllers
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The article title already exists");
                     }
-                    article.ArticleDate = value.ArticleDate;
+                    article.Title = value.Title;
                     article.Content = value.Content;
                     article.ImagePath = value.ImagePath;
-                    article.Title = value.Title;
+                    article.ArticleDate = value.ArticleDate;
+                    article.LastEditDate = value.LastEditDate;
+                    article.LastEditUserID = value.LastEditUserID;
                     db.SaveChanges();
                     return Request.CreateResponse(HttpStatusCode.OK, article);
                 }
