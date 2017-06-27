@@ -14,38 +14,49 @@
 </head>
 
 <body>
-    <div align="center">
-        <div class="form-horizontal" style="border-radius:20px; width: 40%; padding:20px; border: groove; margin-top:35px; background-color:lightgray">
-            <h2>User</h2><br>
 
-            <div class="row">
-                <div class="col-md-offset-3 col-md-6">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <label>Email</label>
-                            <input type="text" class="form-control">
+
+    <div class="col-md-4 align-div-center">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="userName">User</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" type="email" autofocus="">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" type="password">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <label>Confirm Password</label>
-                            <input type="password" class="form-control">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Confirm password" type="password">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-default" onclick="">Submit</button>
-                        <button type="button" class="btn btn-default" onclick="window.location.href = 'http://ride2work.contursoft.ro/'">Cancel</button>
-                    </div>
-                </div>
+                        <center>
+                            <button type="button" class="btn btn-default btn-success" onclick="">Submit</button>
+                            <button type="button" class="btn btn-default" onclick="window.location.href = 'http://ride2work.contursoft.ro/'">Cancel</button>
+                        </center>
+                    </fieldset>
+                </form>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+    <!--<div align="center">
+                        <div class="form-group">
+                <button type="button" class="btn btn-default" onclick="">Submit</button>
+                <button type="button" class="btn btn-default" onclick="window.location.href = 'http://ride2work.contursoft.ro/'">Cancel</button>
+            </div>
+        </div>
+    </div>-->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/login.js"></script>

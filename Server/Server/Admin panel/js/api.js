@@ -98,6 +98,16 @@ function getUser(id, success, error) {
     });
 }
 
+function getCurrentUser(userData, success, error) {
+    return callAPI({
+        where: "Users/GetCurrentUser",
+        type: "POST",
+        data: userData,
+        successCall: success,
+        errorCall: error
+    });
+}
+
 function getArticle(id, success, error) {
     return callAPI({
         where: "articles/" + id,

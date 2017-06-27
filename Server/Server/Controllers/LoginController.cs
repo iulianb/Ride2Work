@@ -1,4 +1,5 @@
-﻿using Server.Models;
+﻿using Server.Helpers;
+using Server.Models;
 using Server.Models.Context;
 using System;
 using System.Linq;
@@ -21,8 +22,9 @@ namespace Server.Controllers
             {
                 using (var db = new DataBaseContext())
                 {
-                    var user = db.Users.SingleOrDefault(x => x.UserName == value.UserName && x.Password == value.Password);
-                    if (user == null)
+                    var user = db.Users.SingleOrDefault(x => x.UserName == value.UserName);
+                    var isPasswordValid = Hashing.ValidatePassword(value.Password, user.Password);
+                    if (user == null || !isPasswordValid)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Input fields are incorrect");
                     }

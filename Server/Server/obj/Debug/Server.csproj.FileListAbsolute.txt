@@ -36,7 +36,6 @@ C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\Newtonsoft.Json.
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\System.Net.Http.Formatting.xml
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\System.Web.Http.xml
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\System.Web.Http.WebHost.xml
-C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.dll
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.pdb
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\EntityFramework.dll
@@ -50,3 +49,7 @@ C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Mig
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.AddedArticleIDToComment.resources
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.CorrectedModels.resources
 C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.Migrations.AfterDiscussions.resources
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\BCrypt.Net.dll
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\BCrypt.Net.pdb
+C:\Users\Cristi!\Desktop\ConturSoft\Ride2Work\Server\Server\bin\BCrypt.Net.xml

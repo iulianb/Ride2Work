@@ -1,10 +1,12 @@
-﻿using Server.Models;
+﻿using Server.Helpers;
+using Server.Models;
 using Server.Models.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 
 namespace Server.Controllers
@@ -37,6 +39,32 @@ namespace Server.Controllers
             }
         }
 
+        // GET: api/Users/GetCurrentUser
+        [Route("api/Users/GetCurrentUser")]
+        [HttpPost]
+        public HttpResponseMessage GetCurrentUser([FromBody]User value)
+        {
+            try
+            {
+                using (var db = new DataBaseContext())
+                {
+                    var user = db.Users.SingleOrDefault(x => x.UserName == value.UserName);
+                    if (user != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, user);
+                    }
+                    else
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User with username = " + value.UserName + " not found");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
         // POST: api/Users
         public HttpResponseMessage Post([FromBody]User value)
         {
@@ -49,6 +77,7 @@ namespace Server.Controllers
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The email or username already exists");
                     }
+                    value.Password = Hashing.HashPassword(value.Password);
                     db.Users.Add(value);
                     db.SaveChanges();
 
@@ -80,8 +109,9 @@ namespace Server.Controllers
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "The email or username already exists");
                     }
+
                     user.UserName = value.UserName;
-                    user.Password = value.Password;
+                    user.Password = Hashing.HashPassword(value.Password);
                     user.Email = value.Email;
                     user.Role = value.Role;
                     db.SaveChanges();
@@ -115,6 +145,6 @@ namespace Server.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
-        }
+        }        
     }
 }

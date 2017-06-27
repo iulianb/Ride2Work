@@ -14,7 +14,6 @@ $(function () {
                 .append("<td>" + data[i].mapImageLink + "</td>")
                 .append("<td>" + data[i].videoLink + "</td>")
                 .append("<td>" + data[i].eventDate + "</td>")
-                .append("<td>" + data[i].isPrevious + "</td>")
                 .append("<td><span class='glyphicon glyphicon-edit edit-button'></span><span class='glyphicon glyphicon-remove remove-button'></span></td>");
         }
     }
