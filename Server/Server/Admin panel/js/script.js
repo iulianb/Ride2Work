@@ -15,3 +15,29 @@ function filterByKeyword() {
         }
     }
 }
+
+//GetCurrentUser
+function getEditUser() {
+    var user = sessionStorage.getItem("currentUser");
+    if (user === "" || user == "null") {
+        alert("No user");
+    }
+    getCurrentUser({
+        username: user,
+    }
+        , getCurrentUserSuccess, getCurrentUserError);
+};
+
+function getCurrentUserSuccess(data) {
+    document.getElementById("currentUserName").innerHTML = data.userName;
+    document.getElementById("currentUserEmail").value = data.email;
+}
+
+//TODO
+function getCurrentUserError(message) {
+    var errCodes = {
+        "404": "Input fields are incorrect!",
+        "406": "Something went wrong"
+    };
+    console.log(errCodes[message.status + ""]);
+}

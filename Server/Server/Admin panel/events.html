@@ -25,7 +25,7 @@
                     <a href="#" id="userName" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="#" onclick="getEditUser();" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-gear"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <button type="button" class="btn btn-default" onclick="">Add new event</button>
+                        <button type="button" class="btn btn-default" onclick="clearEventModal()" data-toggle="modal" data-target="#eventModal">Add new event</button>
                     </div>
                     <div class="col-lg-4">
                         <div class="input-group">
@@ -108,18 +108,66 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="userName">User</h4>
+                    <h4 class="modal-title" id="currentUserName">User</h4>
                 </div>
                 <div class="modal-body">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Email" type="email" autofocus="">
+                            <input id="currentUserEmail" class="form-control" placeholder="Email" type="email" autofocus="">
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Password" type="password">
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Confirm password" type="password">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default btn-success" onclick="">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New event modal -->
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="eventModalName">New event</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="eventTitle">Title</label>
+                            <input id="eventTitle" class="form-control" placeholder="Title" type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDescription">Description</label>
+                            <input id="eventDescription" class="form-control" placeholder="Description" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventSponsor">Sponsor</label>
+                            <input id="eventSponsor" class="form-control" placeholder="Sponsor" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventMapImage">Map image</label>
+                            <input id="eventMapImage" class="form-control" placeholder="Map image" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventLocation">Location</label>
+                            <input id="eventLocation" class="form-control" placeholder="Location" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventVideoLink">Video link</label>
+                            <input id="eventVideoLink" class="form-control" placeholder="Video link" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event date</label>
+                            <input id="eventDate" class="form-control" placeholder="Event date" type="text">
                         </div>
                     </fieldset>
                 </div>

@@ -25,7 +25,7 @@
                     <a href="#" id="userName" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="#" onclick="getEditUser();" data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-gear"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <button type="button" class="btn btn-default" onclick="">Add new link</button>
+                        <button type="button" class="btn btn-default" onclick="clearEvSpModal()" data-toggle="modal" data-target="#eventSponsorModal">Add new link</button>
                     </div>
                     <div class="col-lg-4">
                         <div class="input-group">
@@ -104,18 +104,50 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="userName">User</h4>
+                    <h4 class="modal-title" id="currentUserName">User</h4>
                 </div>
                 <div class="modal-body">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Email" type="email" autofocus="">
+                            <input id="currentUserEmail" class="form-control" placeholder="Email" type="email" autofocus="">
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Password" type="password">
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Confirm password" type="password">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default btn-success" onclick="">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New eventSponsor modal -->
+    <div class="modal fade" id="eventSponsorModal" tabindex="-1" role="dialog" aria-labelledby="eventSponsorModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="eventSponsorModalName">New link</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="evspLinkToFb">Link to Facebook</label>
+                            <input id="evspLinkToFb" class="form-control" placeholder="Link to Facebook" type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label for="evspEvent">Event</label>
+                            <input id="evspEvent" class="form-control" placeholder="Event" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="evspSponsor">Sponsor</label>
+                            <input id="evspSponsor" class="form-control" placeholder="Sponsor" type="text">
                         </div>
                     </fieldset>
                 </div>

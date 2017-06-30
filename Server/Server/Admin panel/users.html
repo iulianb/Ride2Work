@@ -71,7 +71,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <button type="button" class="btn btn-default" onclick="">Add new user</button>
+                        <button type="button" class="btn btn-default" onclick="clearUserModal()" data-toggle="modal" data-target="#userModal">Add new user</button>
                     </div>
                     <div class="col-lg-4">
                         <div class="input-group">
@@ -116,6 +116,46 @@
                         </div>
                         <div class="form-group">
                             <input class="form-control" placeholder="Confirm password" type="password">
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default btn-success" onclick="">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New articl modal -->
+    <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="userModalName">New user</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="userUserName">Username</label>
+                            <input id="userUserName" class="form-control" placeholder="Username" type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input id="userEmail" class="form-control" placeholder="Email" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPassword">Password</label>
+                            <input id="userPassword" class="form-control" placeholder="Password" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="userConfirmPassword">Confirm password</label>
+                            <input id="userConfirmPassword" class="form-control" placeholder="Confirm password" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="userRole">Role</label>
+                            <input id="userRole" class="form-control" placeholder="Role" type="text">
                         </div>
                     </fieldset>
                 </div>
