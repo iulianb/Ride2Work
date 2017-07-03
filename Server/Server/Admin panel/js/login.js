@@ -20,6 +20,7 @@ function login() {
 
 function loginSuccess(message) {
     sessionStorage.setItem("currentUser", message.userName);
+    sessionStorage.setItem("currentUserId", message.id);
     window.location.replace("articles.html");
 }
 

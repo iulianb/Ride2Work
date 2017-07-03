@@ -13,7 +13,9 @@ $(function () {
                 .append("<td>" + data[i].articleDate + "</td>")
                 .append("<td>" + data[i].lastEditDate + "</td>")
                 .append("<td>" + data[i].lastEditUserID + "</td>")
-                .append("<td><a href='#' data-toggle='modal' data-target='#articleModal' onclick='getEditArticle(" + data[i].id + ")'><span class='glyphicon glyphicon-edit edit-button'></span></a><span class='glyphicon glyphicon-remove remove-button'></span></td>");
+                .append("<td><a href='#' data-toggle='modal' data-target='#articleModal' onclick='getEditArticle("
+                + data[i].id + ")'><span class='glyphicon glyphicon-edit edit-button'></span></a><a href='#' data-toggle='modal' data-target='#deleteArticleModal' onclick='getDeleteArticle("
+                + data[i].id + ")'><span class='glyphicon glyphicon-remove remove-button'></span></a></td>");
         }
     }
     getAllArticles(showAllArticles);
@@ -32,16 +34,15 @@ function getEditArticleSuccess(data) {
     document.getElementById("articleContent").value = data.content;
     document.getElementById("articleImage").value = data.imagePath;
     document.getElementById("articleDateAdded").value = data.articleDate;
-}
+};
 
-//TODO
 function getEditArticleError(message) {
     var errCodes = {
         "404": "Input fields are incorrect!",
         "406": "Something went wrong"
     };
     console.log(errCodes[message.status + ""]);
-}
+};
 
 function clearArticleModal() {
     document.getElementById("articleModalName").innerHTML = "New article";
@@ -49,4 +50,57 @@ function clearArticleModal() {
     document.getElementById("articleContent").value = "";
     document.getElementById("articleImage").value = "";
     document.getElementById("articleDateAdded").value = "";
+};
+
+//Add new article
+function addNewArticle() {
+    var title = document.getElementById("articleModalName").innerHTML;
+    if (title === "New article") {
+        addArticle(
+            {
+                title: $("#articleTitle")[0].value,
+                content: $("#articleContent")[0].value,
+                imagePath: $("#articleImage")[0].value,
+                articleDate: $("#articleDateAdded")[0].value,
+                lastEditDate: $("#articleDateAdded")[0].value,
+                lastEditUserID: sessionStorage.getItem("currentUserId")
+            }, articleAddedSuccess, articleAddedError);
+        return;
+    }
+    var now = new Date();
+    updateArticle(
+        {
+            title: $("#articleTitle")[0].value,
+            content: $("#articleContent")[0].value,
+            imagePath: $("#articleImage")[0].value,
+            articleDate: $("#articleDateAdded")[0].value,
+            lastEditDate: now.format("isoDateTime"),
+            lastEditUserID: sessionStorage.getItem("currentUserId")
+        }, articleAddedSuccess, articleAddedError);
 }
+
+function articleAddedSuccess() {
+    location.reload();
+}
+
+function articleAddedError() {
+    var errCodes = {
+        "404": "Input fields are incorrect!",
+        "406": "Something went wrong"
+    };
+    console.log(errCodes[message.status + ""]);
+}
+
+// Delete article
+function getDeleteArticle(id) {
+    sessionStorage.setItem("articleToDelete", id);
+};
+
+function deleteSelectedArticle() {
+    var id = sessionStorage.getItem("articleToDelete");
+    deleteArticle(id, deletionSuccess)
+};
+
+function deletionSuccess() {
+    document.getElementById("deletionSuccessMessage").style.display = "block";
+};

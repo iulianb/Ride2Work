@@ -14,8 +14,9 @@ $(function () {
                 .append("<td>" + data[i].mapImageLink + "</td>")
                 .append("<td>" + data[i].videoLink + "</td>")
                 .append("<td>" + data[i].eventDate + "</td>")
-                .append("<td><a href='#' data-toggle='modal' data-target='#eventModal' onclick='getEditEvent(" + data[i].id + ")'><span class='glyphicon glyphicon-edit edit-button'></span></a><span class='glyphicon glyphicon-remove remove-button'></span></td>");
-
+                .append("<td><a href='#' data-toggle='modal' data-target='#eventModal' onclick='getEditEvent("
+                + data[i].id + ")'><span class='glyphicon glyphicon-edit edit-button'><a href='#' data-toggle='modal' data-target='#deleteEventModal' onclick='getDeleteEvent("
+                + data[i].id + ")'><span class='glyphicon glyphicon-remove remove-button'></span></a></td>");
         }
     }
     getAllEvents(showAllEvents);
@@ -37,7 +38,7 @@ function getEditEventSuccess(data) {
     document.getElementById("eventLocation").value = data.mapImageLink;
     document.getElementById("eventVideoLink").value = data.videoLink;
     document.getElementById("eventDate").value = data.eventDate;
-}
+};
 
 //TODO
 function getEditEventError(message) {
@@ -46,7 +47,7 @@ function getEditEventError(message) {
         "406": "Something went wrong"
     };
     console.log(errCodes[message.status + ""]);
-}
+};
 
 function clearEventModal() {
     document.getElementById("eventModalName").innerHTML = "New event";
@@ -57,4 +58,59 @@ function clearEventModal() {
     document.getElementById("eventLocation").value = '';
     document.getElementById("eventVideoLink").value = '';
     document.getElementById("eventDate").value = '';
+};
+
+//Add new event
+function addNewEvent() {
+    var title = document.getElementById("eventModalName").innerHTML;
+    if (title === "New event") {
+        addEvent(
+            {
+                title: $("#eventTitle")[0].value,
+                description: $("#eventDescription")[0].value,
+                sponsorImage: $("#eventSponsor")[0].value,
+                mapImage: $("#eventMapImage")[0].value,
+                location: $("#eventLocation")[0].value,
+                videoLink: $("#eventVideoLink")[0].value,
+                eventDate: $("#eventDate")[0].value
+            }, eventAddedSuccess, eventAddedError);
+        return;
+    }
+    var now = new Date();
+    updateEvent(
+        {
+            title: $("#eventTitle")[0].value,
+            description: $("#eventDescription")[0].value,
+            sponsorImage: $("#eventSponsor")[0].value,
+            mapImage: $("#eventMapImage")[0].value,
+            location: $("#eventLocation")[0].value,
+            videoLink: $("#eventVideoLink")[0].value,
+            eventDate: $("#eventDate")[0].value
+        }, eventAddedSuccess, eventAddedError);
 }
+
+function eventAddedSuccess() {
+    location.reload();
+}
+
+function eventAddedError() {
+    var errCodes = {
+        "404": "Input fields are incorrect!",
+        "406": "Something went wrong"
+    };
+    console.log(errCodes[message.status + ""]);
+}
+
+// Delete event
+function getDeleteEvent(id) {
+    sessionStorage.setItem("eventToDelete", id);
+};
+
+function deleteSelectedEvent() {
+    var id = sessionStorage.getItem("eventToDelete");
+    deleteEvent(id, deletionSuccess)
+};
+
+function deletionSuccess() {
+    document.getElementById("deletionSuccessMessage").style.display = "block";
+};

@@ -173,10 +173,33 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default btn-success" onclick="">Save changes</button>
+                    <button type="button" class="btn btn-default btn-success" onclick="addNewEvent()">Save changes</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Delete event modal -->
+    <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteEventModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Delete event</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="deleteEvent">Are you sure you want to delete event?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default btn-danger" onclick="deleteSelectedEvent()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="deletionSuccessMessage" class="alert alert-success alert-dismissable" style="display:none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Event was deleted!</strong>
     </div>
 
     <script src="js/jquery.js"></script>

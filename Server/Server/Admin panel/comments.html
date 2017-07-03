@@ -126,6 +126,29 @@
         </div>
     </div>
 
+    <!-- Delete comment modal -->
+    <div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog" aria-labelledby="deleteCommentModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Delete comment</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="deleteComment">Are you sure you want to delete comment?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default btn-danger" onclick="deleteSelectedComment()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="deletionSuccessMessage" class="alert alert-success alert-dismissable" style="display:none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Comment was deleted!</strong>
+    </div>
+
     <script src="js/jquery.js"></script>
     <script src="js/api.js"></script>
     <script src="js/script.js"></script>
