@@ -1,5 +1,7 @@
 $(function () {
 
+
+
 	function showArticles(data) {
 		var len = data.length;
 		sessionStorage.setItem("currentArticle", data[len - 1].id);
@@ -9,23 +11,27 @@ $(function () {
 		for (var i = len - 1; i >= 0; i--) {
 			if (data[i].id != sessionStorage.getItem("currentArticle")) {
 
-				$(".articles").append(`<div id="article${data[i].id}"></div>`);
+				$(".past-articles").append(`<div id="article${data[i].id}" class="slide"></div>`);
 
 				$("#article" + data[i].id)
 				.append(`
-					<h2 class="article-title">${data[i].title}</h2>
-					<p class="article-content">${data[i].content}</p>
-					<img class="article-image" src="${data[i].imagePath}">${data[i].imagePath}
-					<p>Data postarii:${data[i].articleDate}</p>
-					<div class="article-comments"></div>
-					<input id="comment-box-${data[i].id}" type="text">
-					<button id="comment-button-${data[i].id}" class="comment-b">Send</button>`);
+						<h2 class="article-title">${data[i].title}</h2>
+						<p class="article-content">${data[i].content}</p>
+						<div class="rhomb">
+							<img class="article-image" src="${data[i].imagePath}">${data[i].imagePath}
+						</div>
+						<p>Data postarii:${data[i].articleDate}</p>
+						<div class="article-comments1"></div>
+						<input id="comment-box-${data[i].id}" type="text">
+						<button id="comment-button-${data[i].id}" class="comment-b">Send</button>
+				`);
 			}
 			else {
 				// $(".main-image").attr("src", `${data[i].imagePath}`);
 				$(".main-article")
 				.append(`
 					<h2 class="article-title">${data[i].title}</h2>
+					<p>Data postarii:${data[i].articleDate}</p>
 					<p class="article-content">${data[i].content}</p>
 				`);
 			}
@@ -91,6 +97,8 @@ $(function () {
 		}
 	}
 
+
+
 	getAllArticles(showArticles);
 
 	//Hack to make comments show propperly
@@ -102,4 +110,31 @@ $(function () {
 		addHandle();
 	}, 300);
 
+	setTimeout(function () {
+		$('.past-articles').bxSlider({
+		  slideWidth: 300,
+		  minSlides: 2,
+		  maxSlides: 3,
+		  moveSlides: 1,
+		  slideMargin: 10
+		});
+	}, 1 * 1000);
+
 });
+
+
+
+/*
+Snippet to convert iso date format
+date = new Date('2013-08-03T02:00:00Z');
+year = date.getFullYear();
+month = date.getMonth()+1;
+dt = date.getDate();
+
+if (dt < 10) {
+  dt = '0' + dt;
+}
+if (month < 10) {
+  month = '0' + month;
+}
+*/
