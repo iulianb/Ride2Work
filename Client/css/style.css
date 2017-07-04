@@ -396,23 +396,29 @@ tatus {
 }
 
 .rhomb {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 160px;
-  height: 160px;
-  border-radius: 10%;
-  margin: 3px 0 0 30px;
-  border: none;
-  font: normal 100%/normal Arial, Helvetica, sans-serif;
-  color: rgba(0,0,0,1);
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  /*background: #1abc9c;*/
-  -webkit-transform: rotateZ(-45deg)   ;
-  transform: rotateZ(-45deg)   ;
-  -webkit-transform-origin: 0 100% 0deg;
-  transform-origin: 0 100% 0deg;
+    position: relative;
+    top: 10px;
+    left: 65px;
+    width: 165px;
+    height: 165px;
+    border-radius: 10%;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    border: none;
+    transform: rotateZ(-45deg);
+    overflow: hidden;
+    -webkit-transform: rotateZ(-45deg);
+    -webkit-transform-origin: 0 100% 0deg;
+    transform-origin: 0 100% 0deg;
+}
+
+.rhomb > img {
+    transform: rotateZ(45deg);
+    position: relative;
+    min-width: 135%;
+    min-height: 150%;
+    left: -35px;
+    top: -35px;
 }
 
 .article-content br {
@@ -421,7 +427,10 @@ tatus {
 }
 
 /*Carousel Things*/
-
+.slide {
+    margin-left: 12px;
+    margin-right: 16px !important;
+}
 
 
 
@@ -523,6 +532,14 @@ tatus {
         width: 150px;
     }
 
+    .bx-prev, .bx-next {
+        display: none;
+    }
+     .slide{
+        margin-left: 45px;
+        margin-right: 170px !important;
+    }
+
 }
 
 @media (max-width: 1560px) {
@@ -567,6 +584,11 @@ tatus {
 @media (max-width: 992px) {
     .between {
         display: none;
+    }
+
+    .slide{
+        margin-left: 15px;
+        margin-right: 15px !important;
     }
 
 }

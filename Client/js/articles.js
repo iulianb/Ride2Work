@@ -1,7 +1,5 @@
 $(function () {
 
-
-
 	function showArticles(data) {
 		var len = data.length;
 		sessionStorage.setItem("currentArticle", data[len - 1].id);
@@ -15,27 +13,39 @@ $(function () {
 
 				$("#article" + data[i].id)
 				.append(`
-						<h2 class="article-title">${data[i].title}</h2>
-						<p class="article-content">${data[i].content}</p>
 						<div class="rhomb">
 							<img class="article-image" src="${data[i].imagePath}">${data[i].imagePath}
 						</div>
-						<p>Data postarii:${data[i].articleDate}</p>
+						<h2 class="article-title text-center">${data[i].title}</h2>
+						<p class="article-content">${data[i].content}</p>
 						<div class="article-comments1"></div>
-						<input id="comment-box-${data[i].id}" type="text">
-						<button id="comment-button-${data[i].id}" class="comment-b">Send</button>
+						<button class="green-button">Citeşte Articol</button>
 				`);
+				// <input id="comment-box-${data[i].id}" type="text">
+				// 	<button id="comment-button-${data[i].id}" class="comment-b">Send</button>
 			}
 			else {
 				// $(".main-image").attr("src", `${data[i].imagePath}`);
+				$(".main-image").attr("src", data[i].imagePath).attr("alt", data[i].title);
 				$(".main-article")
 				.append(`
-					<h2 class="article-title">${data[i].title}</h2>
-					<p>Data postarii:${data[i].articleDate}</p>
+					<h2 class="article-title text-center">${data[i].title}</h2>
+					<p class="text-center">Data postarii:${data[i].articleDate}</p>
 					<p class="article-content">${data[i].content}</p>
 				`);
 			}
 		}
+		//add carousel
+		$('.past-articles').bxSlider({
+			slideWidth: 300,
+			minSlides: 1,
+			maxSlides: 3,
+			moveSlides: 1,
+			slideMargin: 10,
+			pager: false
+		});
+		$(".bx-prev").empty();
+		$(".bx-next").empty();
 	}
 
 	function showComments(data) {
@@ -103,22 +113,12 @@ $(function () {
 
 	//Hack to make comments show propperly
 	setTimeout(function () {
-		getAllComments(showComments);
+		// getAllComments(showComments);
 	}, 100);
 
 	setTimeout(function () {
-		addHandle();
+		// addHandle();
 	}, 300);
-
-	setTimeout(function () {
-		$('.past-articles').bxSlider({
-		  slideWidth: 300,
-		  minSlides: 2,
-		  maxSlides: 3,
-		  moveSlides: 1,
-		  slideMargin: 10
-		});
-	}, 1 * 1000);
 
 });
 
