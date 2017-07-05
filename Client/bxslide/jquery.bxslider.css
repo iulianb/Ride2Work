@@ -92,7 +92,7 @@ ul.bxslider {
 /* DIRECTION CONTROLS (NEXT / PREV) */
 .bx-wrapper .bx-prev {
   left: -40px;
-  background: url('../images/down-arrow.png') no-repeat;
+  background: url('../images/carousel-arrow.png') no-repeat;
   transform: rotateZ(90deg);
 }
 /*.bx-wrapper .bx-prev:hover,
@@ -102,7 +102,7 @@ ul.bxslider {
 
 .bx-wrapper .bx-next {
   right: -40px;
-  background: url('../images/down-arrow.png') no-repeat;
+  background: url('../images/carousel-arrow.png') no-repeat;
   transform: rotateZ(-90deg);
 }
 
@@ -112,7 +112,7 @@ ul.bxslider {
 }*/
 .bx-wrapper .bx-controls-direction a {
   position: absolute;
-  top: 38%;
+  top: 28%;
   margin-top: -16px;
   outline: 0;
   width: 32px;

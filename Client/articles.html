@@ -6,43 +6,49 @@
 	<div class="main-article container">
 
 		<div class="article-content1"></div>
+
 	</div>
 
+	<div class="article-comments"></div>
+	<input id="comment-box" type="text">
+	<button id="comment-button">Send</button>
+
 	<h2 class="previous-articles text-center">ARTICOLE ANTERIOARE</h2>
-	<!-- (.rhomb>img.article-image[src="http://lorempixel.com/1000/1000"]+h2.article-title.text-center{DUMMY VALUES}+p.article-content{DUMMY VALUES}+button.green-button{ARTICOLE})*4 -->
+	<!-- div#[article{$}].slide*4>(.rhomb>img.article-image[src="http://lorempixel.com/1000/1000"]^h2.article-title.text-center{DUMMY VALUES}+p.article-content.text-center{DUMMY VALUES}+a.article-link>button.green-button{ARTICOLE}) -->
 	<div class="past-articles">
 
-		<div class="rhomb">
+		<!-- <div class="rhomb">
 			<img class="article-image" src="http://lorempixel.com/1000/1000">
 		</div>
 		<h2 class="article-title text-center">DUMMY VALUES</h2>
 		<p class="article-content">DUMMY VALUES</p>
-		<button class="green-button">Citeşte Articol</button>
+		<button class="green-button">Citeşte Articol</button> -->
 
-		<div class="rhomb">
-			<img src="http://lorempixel.com/1000/1000" alt="" class="article-image">
+		<div id="article{1}" class="slide">
+			<div class="rhomb"><img src="http://lorempixel.com/1000/1000" alt="" class="article-image"></div>
 			<h2 class="article-title text-center">DUMMY VALUES</h2>
-			<p class="article-content">DUMMY VALUES</p>
-			<button class="green-button">ARTICOLE</button>
+			<p class="article-content text-center">DUMMY VALUES</p>
+			<a href="" class="article-link"><button class="green-button">ARTICOLE</button></a>
 		</div>
-		<div class="rhomb">
-			<img src="http://lorempixel.com/1000/1000" alt="" class="article-image">
+		<div id="article{2}" class="slide">
+			<div class="rhomb"><img src="http://lorempixel.com/1000/1000" alt="" class="article-image"></div>
 			<h2 class="article-title text-center">DUMMY VALUES</h2>
-			<p class="article-content">DUMMY VALUES</p>
-			<button class="green-button">ARTICOLE</button>
+			<p class="article-content text-center">DUMMY VALUES</p>
+			<a href="" class="article-link"><button class="green-button">ARTICOLE</button></a>
 		</div>
-		<div class="rhomb">
-			<img src="http://lorempixel.com/1000/1000" alt="" class="article-image">
+		<div id="article{3}" class="slide">
+			<div class="rhomb"><img src="http://lorempixel.com/1000/1000" alt="" class="article-image"></div>
 			<h2 class="article-title text-center">DUMMY VALUES</h2>
-			<p class="article-content">DUMMY VALUES</p>
-			<button class="green-button">ARTICOLE</button>
+			<p class="article-content text-center">DUMMY VALUES</p>
+			<a href="" class="article-link"><button class="green-button">ARTICOLE</button></a>
 		</div>
-		<div class="rhomb">
-			<img src="http://lorempixel.com/1000/1000" alt="" class="article-image">
+		<div id="article{4}" class="slide">
+			<div class="rhomb"><img src="http://lorempixel.com/1000/1000" alt="" class="article-image"></div>
 			<h2 class="article-title text-center">DUMMY VALUES</h2>
-			<p class="article-content">DUMMY VALUES</p>
-			<button class="green-button">ARTICOLE</button>
+			<p class="article-content text-center">DUMMY VALUES</p>
+			<a href="" class="article-link"><button class="green-button">ARTICOLE</button></a>
 		</div>
+
 	</div>
 </div>
 <!--

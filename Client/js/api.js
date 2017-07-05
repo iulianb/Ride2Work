@@ -2,8 +2,8 @@
 "use strict";
 
 //Location of the deployed server
-var baseurl = "http://89.44.121.72:8001";
-// var baseurl = "http://localhost:49421";
+// var baseurl = "http://89.44.121.72:8001";
+var baseurl = "http://localhost:49421";
 
 
 
@@ -31,6 +31,8 @@ function callAPI (variables) {
 		}
 	});
 }
+
+
 
 //GET ALL NEEDED INFO
 function getAllUsers (success, error) {
@@ -107,7 +109,7 @@ function getArticle (id, success, error) {
 	});
 }
 
-function getComment (id, success, error) {
+function getArticleComments (id, success, error) {
 	return callAPI({
 		where: "comments/" + id,
 		type: "GET",

@@ -1,3 +1,8 @@
+//https://stackoverflow.com/questions/25606322/retrieving-a-users-public-google-gmail-picture
+
+// TODO:
+//Delay comments to avoid spamming
+
 $(function () {
 
 	function showArticles(data) {
@@ -18,11 +23,11 @@ $(function () {
 						</div>
 						<h2 class="article-title text-center">${data[i].title}</h2>
 						<p class="article-content">${data[i].content}</p>
-						<div class="article-comments1"></div>
 						<button class="green-button">Citeşte Articol</button>
 				`);
-				// <input id="comment-box-${data[i].id}" type="text">
-				// 	<button id="comment-button-${data[i].id}" class="comment-b">Send</button>
+					// <div class="article-comments1"></div>
+					// <input id="comment-box-${data[i].id}" type="text">
+					// <button id="comment-button-${data[i].id}" class="comment-b">Send</button>
 			}
 			else {
 				// $(".main-image").attr("src", `${data[i].imagePath}`);
@@ -36,17 +41,17 @@ $(function () {
 			}
 		}
 		//add carousel
-		$('.past-articles').bxSlider({
-			slideWidth: 300,
-			minSlides: 1,
-			maxSlides: 3,
-			moveSlides: 1,
-			slideMargin: 10,
-			pager: false
-		});
-		$(".bx-prev").empty();
-		$(".bx-next").empty();
 	}
+	$('.past-articles').bxSlider({
+		slideWidth: 280,
+		minSlides: 1,
+		maxSlides: 3,
+		moveSlides: 1,
+		slideMargin: 20,
+		pager: false
+	});
+	$(".bx-prev").empty();
+	$(".bx-next").empty();
 
 	function showComments(data) {
 		var len = data.length;
@@ -56,12 +61,12 @@ $(function () {
 
 		for (var i = len - 1; i >= 0; i--) {
 			if (data[i].id != sessionStorage.getItem("currentArticle")) {
-			$("#article" + data[i].articleID + " .article-comments")
-			.append(`
-			<p class="comment-user">User->${data[i].name}</p>
-			<p class="comment-text">Comment->${data[i].content}</p>
-			<p class="comment-date">Posted->${data[i].commentDate}</p>`);
-		}
+				$("#article" + data[i].articleID + " .article-comments")
+				.append(`
+				<p class="comment-user">User->${data[i].name}</p>
+				<p class="comment-text">Comment->${data[i].content}</p>
+				<p class="comment-date">Posted->${data[i].commentDate}</p>`);
+			}
 		}
 	}
 
@@ -78,11 +83,11 @@ $(function () {
 		}, 1000);
 	}
 
-	function postComment(message, id) {
+	function postComment(user, message, id) {
 		var timestamp = new Date().toISOString();
 
 		addComment({
-			name : "JavaScript",
+			name : "JavaScript ->" + user,
 			content : "Message sent from articles page ->" + message,
 			commentDate : timestamp,
 			articleID : id
@@ -106,8 +111,12 @@ $(function () {
 			});
 		}
 	}
-
-
+	//Actual comment function( replaces addHandle() ),must change to this one SOON(™)
+	$("#comment-button").click(function () {
+		var comment = $("#comment-box").val();
+		var user = $("#comment-user").val();
+		postComment(user, comment, sessionStorage.getItem("currentArticle"))
+	});
 
 	getAllArticles(showArticles);
 
