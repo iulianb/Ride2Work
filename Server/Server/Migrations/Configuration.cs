@@ -6,7 +6,7 @@ namespace Server.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Models.Context.DataBaseContext context)

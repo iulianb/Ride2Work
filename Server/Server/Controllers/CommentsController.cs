@@ -1,4 +1,5 @@
-﻿using Server.Models;
+﻿using Newtonsoft.Json;
+using Server.Models;
 using Server.Models.Context;
 using System;
 using System.Collections.Generic;
@@ -22,20 +23,13 @@ namespace Server.Controllers
         }
 
         // GET: api/Comments/5
-        public HttpResponseMessage Get(int id)
+        public IEnumerable<Comment> Get(int id)
         {
             using (var db = new DataBaseContext())
             {
                 db.Configuration.LazyLoadingEnabled = false;
-                var comment = db.Comments.SingleOrDefault(x => x.Id == id);
-                if (comment != null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, comment);
-                }
-                else
-                {
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Comment with id = " + id + " not found");
-                }
+                var comments = db.Comments.Where(x => x.ArticleID == id);
+                return comments.ToList();
             }
         }
 
