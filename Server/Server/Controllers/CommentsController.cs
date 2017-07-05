@@ -22,16 +22,16 @@ namespace Server.Controllers
             }
         }
 
-        //// GET: api/Comments/5
-        //public IEnumerable<Comment> Get(int id)
-        //{
-        //    using (var db = new DataBaseContext())
-        //    {
-        //        db.Configuration.LazyLoadingEnabled = false;
-        //        var comments = db.Comments.Where(x => x.ArticleID == id);
-        //        return comments.ToList();
-        //    }
-        //}
+        // GET: api/Comments/5
+        public IEnumerable<Comment> Get(int id)
+        {
+            using (var db = new DataBaseContext())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+                var comments = db.Comments.Where(x => x.ArticleID == id);
+                return comments.ToList();
+            }
+        }
 
         // POST: api/Comments
         public HttpResponseMessage Post([FromBody]Comment value)
