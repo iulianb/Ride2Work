@@ -421,6 +421,10 @@ tatus {
     top: -35px;
 }
 
+.article-content {
+    margin-right: 15px;
+}
+
 .article-content br {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -428,10 +432,13 @@ tatus {
 
 /*Carousel Things*/
 .slide {
-    margin-left: 12px;
-    margin-right: 16px !important;
+    margin-left: 5px;
+    margin-right: 5px !important;
 }
 
+.article-link {
+    margin: 0 40px;
+}
 
 
 /*					*/
@@ -535,7 +542,7 @@ tatus {
     .bx-prev, .bx-next {
         display: none;
     }
-     .slide{
+     body .slide{
         margin-left: 45px;
         margin-right: 170px !important;
     }
